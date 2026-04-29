@@ -15,6 +15,7 @@
 [yd]  : Yarda
 [ft]  : Pie
 [in]  : Pulgada
+=======================================================
 
 # PRESIÓN
 [Pa]   : Pascal (P mayúscula)
@@ -26,12 +27,14 @@
 [mmHg] : Milímetro de Mercurio (H mayúscula)
 [psi]  : Libra/Pulgada²
 [mH2O] : Columna de Agua (H y O mayúsculas)
+=======================================================
 
 # TEMPERATURA
 [K] : Kelvin (MAYÚSCULA)
 [C] : Grados Celsius (MAYÚSCULA)
 [F] : Grados Fahrenheit (MAYÚSCULA)
 [R] : Rankine (MAYÚSCULA)
+=======================================================
 
 # TIEMPO
 [s]      : Segundo
@@ -47,6 +50,7 @@
 [lustro] : Lustro
 [decada] : Década
 [siglo]  : Siglo
+=======================================================
 
 # MASA
 [kg]        : Kilogramo
@@ -58,6 +62,7 @@
 [oz]        : Onza
 [ton_short] : Tonelada Corta
 [st]        : Stone
+=======================================================
 
 # VOLUMEN
 [m3]      : Metro Cúbico
@@ -80,6 +85,7 @@
 [floz_uk] : Onza Líquida (Imperial)
 [tbsp_uk] : Cucharada (Imperial)
 [tsp_uk]  : Cucharadita (Imperial)
+=======================================================
 
 # ÁNGULO
 [degree]      : Grado Sexagesimal
@@ -89,6 +95,7 @@
 [revolution]  : Revolución
 [gon]         : Grado Centesimal
 [milliradian] : Milirradián
+=======================================================
 
 # ÁREA
 [m2]  : Metro Cuadrado
@@ -101,6 +108,7 @@
 [in2] : Pulgada Cuadrada
 [ha]  : Hectárea
 [ac]  : Acre
+=======================================================
 
 # ENERGÍA
 [J]       : Joule (MAYÚSCULA)
@@ -115,6 +123,7 @@
 [BTU]     : Unidad Térmica Británica (MAYÚSCULAS)
 [thm]     : Termia (US)
 [ft_lbf]  : Pie-libra fuerza
+=======================================================
 
 # ALMACENAMIENTO (Sensible a Mayúsculas/Minúsculas)
 [bit]    : Bit
@@ -143,6 +152,32 @@
 [GiB]    : Gibibyte (G y B mayúsculas)
 [TiB]    : Tebibyte (T y B mayúsculas)
 [PiB]    : Pebibyte (P y B mayúsculas)
+=======================================================
+
+# Velocidad en Bits (Métrica - Base 1000)
+[bps]  : bit por segundo
+[kbps] : Kilobit por segundo (minúsculas)
+[Mbps] : Megabit por segundo (M mayúscula)
+[Gbps] : Gigabit por segundo (G mayúscula)
+[Tbps] : Terabit por segundo (T mayúscula)
+
+# Velocidad en Bits (Binaria - Base 1024)
+[Kibps] : Kibibit por segundo (K mayúscula)
+[Mibps] : Mebibit por segundo (M mayúscula)
+[Gibps] : Gibibit por segundo (G mayúscula)
+
+# Velocidad en Bytes (Métrica - Base 1000)
+[B_s]  : Byte por segundo (B mayúscula y guion bajo)
+[KB_s] : Kilobyte por segundo (MAYÚSCULAS)
+[MB_s] : Megabyte por segundo (MAYÚSCULAS)
+[GB_s] : Gigabyte por segundo (MAYÚSCULAS)
+[TB_s] : Terabyte por segundo (MAYÚSCULAS)
+
+# Velocidad en Bytes (Binaria - Base 1024)
+[KiB_s] : Kibibyte por segundo (K, B y _s)
+[MiB_s] : Mebibyte por segundo (M, B y _s)
+[GiB_s] : Gibibyte por segundo (G, B y _s)
+=======================================================
 
 # VELOCIDAD
 [ms]   : Metro por segundo
@@ -151,6 +186,7 @@
 [kn]   : Nudo
 [mph]  : Milla por hora
 [fts]  : Pie por segundo
+=======================================================
 
 # EFICIENCIA
 [km_per_l]      : Kilómetro/Litro
@@ -158,4 +194,45 @@
 [mpg_imp]       : Millas/Galón (Imperial)
 [l_per_100km]   : Litros/100 Kilómetros
 [gal_per_100mi] : Galones (US)/100 Millas
+=======================================================
+
+# FUERZA
+[N]   : Newton (MAYÚSCULA)
+[kN]  : Kilonewton
+[lbf] : Libra-fuerza
+[dyn] : Dina
+[kgf] : Kilogramo-fuerza
+=======================================================
+
+# POTENCIA
+[W]     : Vatio (MAYÚSCULA)
+[kW]    : Kilovatio (W mayúscula)
+[MW]    : Megavatio (MAYÚSCULAS)
+[HP]    : Caballo de fuerza (MAYÚSCULAS)
+[CV]    : Caballo de vapor (MAYÚSCULAS)
+[BTU_h] : BTU por hora
+=======================================================
+
+# TORQUE (PAR MOTOR)
+[Nm]    : Newton-metro (N mayúscula)
+[lb_ft] : Libra-pie
+[kgf_m] : Kilogramo-metro
+[in_lb] : Pulgada-libra
+=======================================================
+
+# ACELERACIÓN
+[m_s2]  : Metro por segundo cuadrado
+[ft_s2] : Pie por segundo cuadrado
+[g]     : Gravedad estándar (minúscula)
+=======================================================
+
+# CAUDAL (FLUJO)
+[L_s]   : Litro por segundo (L mayúscula)
+[m3_s]  : Metro cúbico por segundo
+[gpm]   : Galón por minuto
+=======================================================
+
+# DENSIDAD
+[kg_m3] : Kilogramo por metro cúbico
+[g_cm3] : Gramo por centímetro cúbico
 =======================================================
