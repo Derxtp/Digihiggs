@@ -1,0 +1,161 @@
+=======================================================
+ ⚠️ IMPORTANTE: EL USO DE MAYÚSCULAS ES OBLIGATORIO
+ 'b' (bit) no es lo mismo que 'B' (Byte).
+ 'm' (mili) no es lo mismo que 'M' (Mega).
+=======================================================
+
+# LONGITUD
+[m]   : Metro
+[km]  : Kilómetro
+[cm]  : Centímetro
+[mm]  : Milímetro
+[μm]  : Micrómetro (Símbolo 'μ')
+[nm]  : Nanómetro
+[mi]  : Milla
+[yd]  : Yarda
+[ft]  : Pie
+[in]  : Pulgada
+
+# PRESIÓN
+[Pa]   : Pascal (P mayúscula)
+[kPa]  : Kilopascal (P mayúscula)
+[MPa]  : Megapascal (M y P mayúsculas)
+[atm]  : Atmósfera
+[bar]  : Bar
+[Torr] : Torr (T mayúscula)
+[mmHg] : Milímetro de Mercurio (H mayúscula)
+[psi]  : Libra/Pulgada²
+[mH2O] : Columna de Agua (H y O mayúsculas)
+
+# TEMPERATURA
+[K] : Kelvin (MAYÚSCULA)
+[C] : Grados Celsius (MAYÚSCULA)
+[F] : Grados Fahrenheit (MAYÚSCULA)
+[R] : Rankine (MAYÚSCULA)
+
+# TIEMPO
+[s]      : Segundo
+[ms]     : Milisegundo
+[us]     : Microsegundo
+[ns]     : Nanosegundo
+[min]    : Minuto
+[h]      : Hora
+[d]      : Día
+[wk]     : Semana
+[mo]     : Mes
+[a]      : Año
+[lustro] : Lustro
+[decada] : Década
+[siglo]  : Siglo
+
+# MASA
+[kg]        : Kilogramo
+[g]         : Gramo
+[mg]        : Miligramo
+[ug]        : Microgramo
+[t]         : Tonelada Métrica
+[lb]        : Libra
+[oz]        : Onza
+[ton_short] : Tonelada Corta
+[st]        : Stone
+
+# VOLUMEN
+[m3]      : Metro Cúbico
+[cm3]     : Centímetro Cúbico
+[L]       : Litro (MAYÚSCULA)
+[mL]      : Mililitro (L mayúscula)
+[ft3_us]  : Pie Cúbico (US)
+[yd3_us]  : Yarda Cúbica (US)
+[gal_us]  : Galón (US)
+[qt_us]   : Cuarto (US)
+[pt_us]   : Pinta (US)
+[cup_us]  : Taza (US)
+[floz_us] : Onza Líquida (US)
+[tbsp_us] : Cucharada (US)
+[tsp_us]  : Cucharadita (US)
+[in3_us]  : Pulgada Cúbica (US)
+[gal_uk]  : Galón (Imperial)
+[qt_uk]   : Cuarto (Imperial)
+[pt_uk]   : Pinta (Imperial)
+[floz_uk] : Onza Líquida (Imperial)
+[tbsp_uk] : Cucharada (Imperial)
+[tsp_uk]  : Cucharadita (Imperial)
+
+# ÁNGULO
+[degree]      : Grado Sexagesimal
+[arcmin]      : Minuto de Arco
+[arcsec]      : Segundo de Arco
+[radian]      : Radián
+[revolution]  : Revolución
+[gon]         : Grado Centesimal
+[milliradian] : Milirradián
+
+# ÁREA
+[m2]  : Metro Cuadrado
+[cm2] : Centímetro Cuadrado
+[mm2] : Milímetro Cuadrado
+[km2] : Kilómetro Cuadrado
+[mi2] : Milla Cuadrada
+[yd2] : Yarda Cuadrada
+[ft2] : Pie Cuadrado
+[in2] : Pulgada Cuadrada
+[ha]  : Hectárea
+[ac]  : Acre
+
+# ENERGÍA
+[J]       : Joule (MAYÚSCULA)
+[kJ]      : Kilojoule (J mayúscula)
+[cal_th]  : Caloría Térmica
+[kcal]    : Kilocaloría
+[eV]      : Electronvoltio (V mayúscula)
+[Wh]      : Vatio-hora (W mayúscula)
+[kWh]     : Kilovatio-hora (W mayúscula)
+[Ws]      : Vatio-segundo (W mayúscula)
+[Cal_nut] : Caloría Nutricional (C mayúscula)
+[BTU]     : Unidad Térmica Británica (MAYÚSCULAS)
+[thm]     : Termia (US)
+[ft_lbf]  : Pie-libra fuerza
+
+# ALMACENAMIENTO (Sensible a Mayúsculas/Minúsculas)
+[bit]    : Bit
+[nibble] : Nibble
+[kb]     : Kilobit (minúsculas)
+[Mb]     : Megabit (M mayúscula)
+[Gb]     : Gigabit (G mayúscula)
+[Tb]     : Terabit (T mayúscula)
+[Pb]     : Petabit (P mayúscula)
+[Eb]     : Exabit (E mayúscula)
+[Kib]    : Kibibit (K mayúscula)
+[Mib]    : Mebibit (M mayúscula)
+[Gib]    : Gibibit (G mayúscula)
+[Tib]    : Tebibit (T mayúscula)
+[Pib]    : Pebibit (P mayúscula)
+
+[byte]   : Byte
+[KB]     : Kilobyte (MAYÚSCULAS)
+[MB]     : Megabyte (MAYÚSCULAS)
+[GB]     : Gigabyte (MAYÚSCULAS)
+[TB]     : Terabyte (MAYÚSCULAS)
+[PB]     : Petabyte (MAYÚSCULAS)
+[EB]     : Exabyte (MAYÚSCULAS)
+[KiB]    : Kibibyte (K y B mayúsculas)
+[MiB]    : Mebibyte (M y B mayúsculas)
+[GiB]    : Gibibyte (G y B mayúsculas)
+[TiB]    : Tebibyte (T y B mayúsculas)
+[PiB]    : Pebibyte (P y B mayúsculas)
+
+# VELOCIDAD
+[ms]   : Metro por segundo
+[kmh]  : Kilómetro por hora
+[mmin] : Metro por minuto
+[kn]   : Nudo
+[mph]  : Milla por hora
+[fts]  : Pie por segundo
+
+# EFICIENCIA
+[km_per_l]      : Kilómetro/Litro
+[mpg_us]        : Millas/Galón (US)
+[mpg_imp]       : Millas/Galón (Imperial)
+[l_per_100km]   : Litros/100 Kilómetros
+[gal_per_100mi] : Galones (US)/100 Millas
+=======================================================
