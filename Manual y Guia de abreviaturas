@@ -1,238 +1,299 @@
 =======================================================
- ⚠️ IMPORTANTE: EL USO DE MAYÚSCULAS ES OBLIGATORIO
- 'b' (bit) no es lo mismo que 'B' (Byte).
- 'm' (mili) no es lo mismo que 'M' (Mega).
+⚠️ IMPORTANTE: EL USO DE MAYÚSCULAS ES OBLIGATORIO
+'b' (bit) no es lo mismo que 'B' (Byte).
+'m' (mili) no es lo mismo que 'M' (Mega).
 =======================================================
+LONGITUD
+[m]  : Metro (minúscula)
+[km] : Kilómetro (minúsculas)
+[cm] : Centímetro (minúsculas)
+[mm] : Milímetro (minúsculas)
+[μm] : Micrómetro (Símbolo 'μ')
+[nm] : Nanómetro (minúsculas)
+[mi] : Milla (minúsculas)
+[yd] : Yarda (minúsculas)
+[ft] : Pie (minúsculas)
+[in] : Pulgada (minúsculas)
 
-# LONGITUD
-[m]   : Metro
-[km]  : Kilómetro
-[cm]  : Centímetro
-[mm]  : Milímetro
-[μm]  : Micrómetro (Símbolo 'μ')
-[nm]  : Nanómetro
-[mi]  : Milla
-[yd]  : Yarda
-[ft]  : Pie
-[in]  : Pulgada
 =======================================================
-
-# PRESIÓN
-[Pa]   : Pascal (P mayúscula)
-[kPa]  : Kilopascal (P mayúscula)
-[MPa]  : Megapascal (M y P mayúsculas)
-[atm]  : Atmósfera
-[bar]  : Bar
+PRESIÓN
+[Pa]   : Pascal (P mayúscula, a minúscula)
+[kPa]  : Kilopascal (k minúscula, P mayúscula, a minúscula)
+[MPa]  : Megapascal (M y P mayúsculas, a minúscula)
+[atm]  : Atmósfera (minúsculas)
+[bar]  : Bar (minúsculas)
 [Torr] : Torr (T mayúscula)
 [mmHg] : Milímetro de Mercurio (H mayúscula)
-[psi]  : Libra/Pulgada²
-[mH2O] : Columna de Agua (H y O mayúsculas)
-=======================================================
+[psi]  : Libra/Pulgada² (minúsculas)
+[mH2O] : Columna de Agua (m minúscula, H y O mayúsculas)
 
-# TEMPERATURA
+=======================================================
+TEMPERATURA
 [K] : Kelvin (MAYÚSCULA)
 [C] : Grados Celsius (MAYÚSCULA)
 [F] : Grados Fahrenheit (MAYÚSCULA)
 [R] : Rankine (MAYÚSCULA)
-=======================================================
 
-# TIEMPO
-[s]      : Segundo
-[ms]     : Milisegundo
-[us]     : Microsegundo
-[ns]     : Nanosegundo
-[min]    : Minuto
-[h]      : Hora
-[d]      : Día
-[wk]     : Semana
-[mo]     : Mes
-[a]      : Año
-[lustro] : Lustro
-[decada] : Década
-[siglo]  : Siglo
 =======================================================
+TIEMPO
+[s]      : Segundo (minúscula)
+[ms]     : Milisegundo (minúsculas)
+[us]     : Microsegundo (minúsculas)
+[ns]     : Nanosegundo (minúsculas)
+[min]    : Minuto (minúsculas)
+[h]      : Hora (minúscula)
+[d]      : Día (minúscula)
+[wk]     : Semana (minúsculas)
+[mo]     : Mes (minúsculas)
+[a]      : Año (minúscula)
+[lustro] : Lustro (minúsculas)
+[decada] : Década (minúsculas)
+[siglo]  : Siglo (minúsculas)
 
-# MASA
-[kg]        : Kilogramo
-[g]         : Gramo
-[mg]        : Miligramo
-[ug]        : Microgramo
-[t]         : Tonelada Métrica
-[lb]        : Libra
-[oz]        : Onza
-[ton_short] : Tonelada Corta
-[st]        : Stone
 =======================================================
+MASA
+[kg]        : Kilogramo (minúsculas)
+[g]         : Gramo (minúscula)
+[mg]        : Miligramo (minúsculas)
+[ug]        : Microgramo (minúsculas)
+[t]         : Tonelada Métrica (minúscula)
+[lb]        : Libra (minúsculas)
+[oz]        : Onza (minúsculas)
+[ton_short] : Tonelada Corta (minúsculas, con guion bajo)
+[st]        : Stone (minúsculas)
 
-# VOLUMEN
-[m3]      : Metro Cúbico
-[cm3]     : Centímetro Cúbico
+=======================================================
+VOLUMEN
+[m3]      : Metro Cúbico (minúsculas)
+[cm3]     : Centímetro Cúbico (minúsculas)
 [L]       : Litro (MAYÚSCULA)
-[mL]      : Mililitro (L mayúscula)
-[ft3_us]  : Pie Cúbico (US)
-[yd3_us]  : Yarda Cúbica (US)
-[gal_us]  : Galón (US)
-[qt_us]   : Cuarto (US)
-[pt_us]   : Pinta (US)
-[cup_us]  : Taza (US)
-[floz_us] : Onza Líquida (US)
-[tbsp_us] : Cucharada (US)
-[tsp_us]  : Cucharadita (US)
-[in3_us]  : Pulgada Cúbica (US)
-[gal_uk]  : Galón (Imperial)
-[qt_uk]   : Cuarto (Imperial)
-[pt_uk]   : Pinta (Imperial)
-[floz_uk] : Onza Líquida (Imperial)
-[tbsp_uk] : Cucharada (Imperial)
-[tsp_uk]  : Cucharadita (Imperial)
-=======================================================
+[mL]      : Mililitro (m minúscula, L mayúscula)
+[ft3_us]  : Pie Cúbico US (minúsculas, con guion bajo)
+[yd3_us]  : Yarda Cúbica US (minúsculas, con guion bajo)
+[gal_us]  : Galón US (minúsculas, con guion bajo)
+[qt_us]   : Cuarto US (minúsculas, con guion bajo)
+[pt_us]   : Pinta US (minúsculas, con guion bajo)
+[cup_us]  : Taza US (minúsculas, con guion bajo)
+[floz_us] : Onza Líquida US (minúsculas, con guion bajo)
+[tbsp_us] : Cucharada US (minúsculas, con guion bajo)
+[tsp_us]  : Cucharadita US (minúsculas, con guion bajo)
+[in3_us]  : Pulgada Cúbica US (minúsculas, con guion bajo)
+[gal_uk]  : Galón Imperial (minúsculas, con guion bajo)
+[qt_uk]   : Cuarto Imperial (minúsculas, con guion bajo)
+[pt_uk]   : Pinta Imperial (minúsculas, con guion bajo)
+[floz_uk] : Onza Líquida Imperial (minúsculas, con guion bajo)
+[tbsp_uk] : Cucharada Imperial (minúsculas, con guion bajo)
+[tsp_uk]  : Cucharadita Imperial (minúsculas, con guion bajo)
 
-# ÁNGULO
-[degree]      : Grado Sexagesimal
-[arcmin]      : Minuto de Arco
-[arcsec]      : Segundo de Arco
-[radian]      : Radián
-[revolution]  : Revolución
-[gon]         : Grado Centesimal
-[milliradian] : Milirradián
 =======================================================
+ÁNGULO
+[degree]      : Grado Sexagesimal (minúsculas)
+[arcmin]      : Minuto de Arco (minúsculas)
+[arcsec]      : Segundo de Arco (minúsculas)
+[radian]      : Radián (minúsculas)
+[revolution]  : Revolución (minúsculas)
+[gon]         : Grado Centesimal (minúsculas)
+[milliradian] : Milirradián (minúsculas)
 
-# ÁREA
-[m2]  : Metro Cuadrado
-[cm2] : Centímetro Cuadrado
-[mm2] : Milímetro Cuadrado
-[km2] : Kilómetro Cuadrado
-[mi2] : Milla Cuadrada
-[yd2] : Yarda Cuadrada
-[ft2] : Pie Cuadrado
-[in2] : Pulgada Cuadrada
-[ha]  : Hectárea
-[ac]  : Acre
 =======================================================
+ÁREA
+[m2]  : Metro Cuadrado (minúsculas)
+[cm2] : Centímetro Cuadrado (minúsculas)
+[mm2] : Milímetro Cuadrado (minúsculas)
+[km2] : Kilómetro Cuadrado (minúsculas)
+[mi2] : Milla Cuadrada (minúsculas)
+[yd2] : Yarda Cuadrada (minúsculas)
+[ft2] : Pie Cuadrado (minúsculas)
+[in2] : Pulgada Cuadrada (minúsculas)
+[ha]  : Hectárea (minúsculas)
+[ac]  : Acre (minúsculas)
 
-# ENERGÍA
+=======================================================
+ENERGÍA
 [J]       : Joule (MAYÚSCULA)
-[kJ]      : Kilojoule (J mayúscula)
-[cal_th]  : Caloría Térmica
-[kcal]    : Kilocaloría
-[eV]      : Electronvoltio (V mayúscula)
-[Wh]      : Vatio-hora (W mayúscula)
-[kWh]     : Kilovatio-hora (W mayúscula)
-[Ws]      : Vatio-segundo (W mayúscula)
-[Cal_nut] : Caloría Nutricional (C mayúscula)
+[kJ]      : Kilojoule (k minúscula, J mayúscula)
+[cal_th]  : Caloría Térmica (minúsculas, con guion bajo)
+[kcal]    : Kilocaloría (minúsculas)
+[eV]      : Electronvoltio (e minúscula, V mayúscula)
+[Wh]      : Vatio-hora (W mayúscula, h minúscula)
+[kWh]     : Kilovatio-hora (k minúscula, W mayúscula, h minúscula)
+[Ws]      : Vatio-segundo (W mayúscula, s minúscula)
+[Cal_nut] : Caloría Nutricional (C mayúscula, lo demás minúscula, guion bajo)
 [BTU]     : Unidad Térmica Británica (MAYÚSCULAS)
-[thm]     : Termia (US)
-[ft_lbf]  : Pie-libra fuerza
+[thm]     : Termia US (minúsculas)
+[ft_lbf]  : Pie-libra fuerza (minúsculas, con guion bajo)
+
+
 =======================================================
+ALMACENAMIENTO (Sensible a Mayúsculas/Minúsculas)
 
-# ALMACENAMIENTO (Sensible a Mayúsculas/Minúsculas)
-[bit]    : Bit
-[nibble] : Nibble
+[bit]    : Bit (minúsculas)
+[nibble] : Nibble (minúsculas)
 [kb]     : Kilobit (minúsculas)
-[Mb]     : Megabit (M mayúscula)
-[Gb]     : Gigabit (G mayúscula)
-[Tb]     : Terabit (T mayúscula)
-[Pb]     : Petabit (P mayúscula)
-[Eb]     : Exabit (E mayúscula)
-[Kib]    : Kibibit (K mayúscula)
-[Mib]    : Mebibit (M mayúscula)
-[Gib]    : Gibibit (G mayúscula)
-[Tib]    : Tebibit (T mayúscula)
-[Pib]    : Pebibit (P mayúscula)
-
-[byte]   : Byte
+[Mb]     : Megabit (M mayúscula, b minúscula)
+[Gb]     : Gigabit (G mayúscula, b minúscula)
+[Tb]     : Terabit (T mayúscula, b minúscula)
+[Pb]     : Petabit (P mayúscula, b minúscula)
+[Eb]     : Exabit (E mayúscula, b minúscula)
+[Kib]    : Kibibit (K mayúscula, i y b minúsculas)
+[Mib]    : Mebibit (M mayúscula, i y b minúsculas)
+[Gib]    : Gibibit (G mayúscula, i y b minúsculas)
+[Tib]    : Tebibit (T mayúscula, i y b minúsculas)
+[Pib]    : Pebibit (P mayúscula, i y b minúsculas)
+[byte]   : Byte (minúsculas)
 [KB]     : Kilobyte (MAYÚSCULAS)
 [MB]     : Megabyte (MAYÚSCULAS)
 [GB]     : Gigabyte (MAYÚSCULAS)
 [TB]     : Terabyte (MAYÚSCULAS)
 [PB]     : Petabyte (MAYÚSCULAS)
 [EB]     : Exabyte (MAYÚSCULAS)
-[KiB]    : Kibibyte (K y B mayúsculas)
-[MiB]    : Mebibyte (M y B mayúsculas)
-[GiB]    : Gibibyte (G y B mayúsculas)
-[TiB]    : Tebibyte (T y B mayúsculas)
-[PiB]    : Pebibyte (P y B mayúsculas)
+[KiB]    : Kibibyte (K y B mayúsculas, i minúscula)
+[MiB]    : Mebibyte (M y B mayúsculas, i minúscula)
+[GiB]    : Gibibyte (G y B mayúsculas, i minúscula)
+[TiB]    : Tebibyte (T y B mayúsculas, i minúscula)
+[PiB]    : Pebibyte (P y B mayúsculas, i minúscula)
+
 =======================================================
+TRANSFERENCIA: Velocidad en Bits (Métrica - Base 1000)
 
-# Velocidad en Bits (Métrica - Base 1000)
-[bps]  : bit por segundo
+[bps]  : bit por segundo (minúsculas)
 [kbps] : Kilobit por segundo (minúsculas)
-[Mbps] : Megabit por segundo (M mayúscula)
-[Gbps] : Gigabit por segundo (G mayúscula)
-[Tbps] : Terabit por segundo (T mayúscula)
+[Mbps] : Megabit por segundo (M mayúscula, lo demás minúscula)
+[Gbps] : Gigabit por segundo (G mayúscula, lo demás minúscula)
+[Tbps] : Terabit por segundo (T mayúscula, lo demás minúscula)
+TRANSFERENCIA: Velocidad en Bits (Binaria - Base 1024)
 
-# Velocidad en Bits (Binaria - Base 1024)
 [Kibps] : Kibibit por segundo (K mayúscula)
 [Mibps] : Mebibit por segundo (M mayúscula)
 [Gibps] : Gibibit por segundo (G mayúscula)
+TRANSFERENCIA: Velocidad en Bytes (Métrica - Base 1000)
 
-# Velocidad en Bytes (Métrica - Base 1000)
-[B_s]  : Byte por segundo (B mayúscula y guion bajo)
-[KB_s] : Kilobyte por segundo (MAYÚSCULAS)
-[MB_s] : Megabyte por segundo (MAYÚSCULAS)
-[GB_s] : Gigabyte por segundo (MAYÚSCULAS)
-[TB_s] : Terabyte por segundo (MAYÚSCULAS)
+[B_s]  : Byte por segundo (B mayúscula, guion bajo, s minúscula)
+[KB_s] : Kilobyte por segundo (K y B mayúsculas, guion bajo, s minúscula)
+[MB_s] : Megabyte por segundo (M y B mayúsculas, guion bajo, s minúscula)
+[GB_s] : Gigabyte por segundo (G y B mayúsculas, guion bajo, s minúscula)
+[TB_s] : Terabyte por segundo (T y B mayúsculas, guion bajo, s minúscula)
+TRANSFERENCIA: Velocidad en Bytes (Binaria - Base 1024)
+[KiB_s] : Kibibyte por segundo (K y B mayúsculas, i minúscula, guion bajo, s minúscula)
+[MiB_s] : Mebibyte por segundo (M y B mayúsculas, i minúscula, guion bajo, s minúscula)
+[GiB_s] : Gibibyte por segundo (G y B mayúsculas, i minúscula, guion bajo, s minúscula)
 
-# Velocidad en Bytes (Binaria - Base 1024)
-[KiB_s] : Kibibyte por segundo (K, B y _s)
-[MiB_s] : Mebibyte por segundo (M, B y _s)
-[GiB_s] : Gibibyte por segundo (G, B y _s)
 =======================================================
 
-# VELOCIDAD
-[ms]   : Metro por segundo
-[kmh]  : Kilómetro por hora
-[mmin] : Metro por minuto
-[kn]   : Nudo
-[mph]  : Milla por hora
-[fts]  : Pie por segundo
+VELOCIDAD
+[ms]   : Metro por segundo (minúsculas)
+[kmh]  : Kilómetro por hora (minúsculas)
+[mmin] : Metro por minuto (minúsculas)
+[kn]   : Nudo (minúsculas)
+[mph]  : Milla por hora (minúsculas)
+[fts]  : Pie por segundo (minúsculas)
+
+
 =======================================================
 
-# EFICIENCIA
-[km_per_l]      : Kilómetro/Litro
-[mpg_us]        : Millas/Galón (US)
-[mpg_imp]       : Millas/Galón (Imperial)
-[l_per_100km]   : Litros/100 Kilómetros
-[gal_per_100mi] : Galones (US)/100 Millas
+
+EFICIENCIA
+[km_per_l]      : Kilómetro/Litro (minúsculas, con guiones bajos)
+[mpg_us]        : Millas/Galón US (minúsculas, con guion bajo)
+[mpg_imp]       : Millas/Galón Imperial (minúsculas, con guion bajo)
+[l_per_100km]   : Litros/100 Kilómetros (minúsculas, con guiones bajos)
+[gal_per_100mi] : Galones US/100 Millas (minúsculas, con guiones bajos)
+
 =======================================================
 
-# FUERZA
+FUERZA
 [N]   : Newton (MAYÚSCULA)
-[kN]  : Kilonewton
-[lbf] : Libra-fuerza
-[dyn] : Dina
-[kgf] : Kilogramo-fuerza
+[kN]  : Kilonewton (k minúscula, N mayúscula)
+[lbf] : Libra-fuerza (minúsculas)
+[dyn] : Dina (minúsculas)
+[kgf] : Kilogramo-fuerza (minúsculas)
+
 =======================================================
 
-# POTENCIA
+POTENCIA
 [W]     : Vatio (MAYÚSCULA)
-[kW]    : Kilovatio (W mayúscula)
+[kW]    : Kilovatio (k minúscula, W mayúscula)
 [MW]    : Megavatio (MAYÚSCULAS)
 [HP]    : Caballo de fuerza (MAYÚSCULAS)
 [CV]    : Caballo de vapor (MAYÚSCULAS)
-[BTU_h] : BTU por hora
+[BTU_h] : BTU por hora (BTU mayúsculas, guion bajo, h minúscula)
+
 =======================================================
 
-# TORQUE (PAR MOTOR)
-[Nm]    : Newton-metro (N mayúscula)
-[lb_ft] : Libra-pie
-[kgf_m] : Kilogramo-metro
-[in_lb] : Pulgada-libra
+TORQUE (PAR MOTOR)
+[Nm]    : Newton-metro (N mayúscula, m minúscula)
+[lb_ft] : Libra-pie (minúsculas, con guion bajo)
+[kgf_m] : Kilogramo-metro (minúsculas, con guion bajo)
+[in_lb] : Pulgada-libra (minúsculas, con guion bajo)
+
 =======================================================
 
-# ACELERACIÓN
-[m_s2]  : Metro por segundo cuadrado
-[ft_s2] : Pie por segundo cuadrado
+ELECTRICIDAD
+[V]    : Voltio (MAYÚSCULA)
+[mV]   : Milivoltio (m minúscula, V mayúscula)
+[kV]   : Kilovoltio (k minúscula, V mayúscula)
+[A]    : Amperio (MAYÚSCULA)
+[mA]   : Miliamperio (m minúscula, A mayúscula)
+[Ohm]  : Ohmio (O mayúscula, h y m minúsculas)
+[kOhm] : Kilohmio (k minúscula, O mayúscula, h y m minúsculas)
+
+=======================================================
+
+FRECUENCIA
+[Hz]    : Hercio (H mayúscula, z minúscula)
+[kHz]   : Kilohercio (k minúscula, H mayúscula, z minúscula)
+[MHz]   : Megahercio (M mayúscula, H mayúscula, z minúscula)
+[GHz]   : Gigahercio (G mayúscula, H mayúscula, z minúscula)
+[THz]   : Terahercio (T mayúscula, H mayúscula, z minúscula)
+[rad_s] : Radián/segundo (minúsculas, con guion bajo)
+[rpm]   : RPM (minúsculas en el ID)
+
+=======================================================
+
+DISEÑO
+[px]       : Píxel (minúsculas)
+[pt]       : Punto (minúsculas)
+[pc]       : Pica (minúsculas)
+[in_print] : Pulgada física (minúsculas, con guion bajo)
+[cm_print] : Centímetro físico (minúsculas, con guion bajo)
+
+=======================================================
+
+ILUMINACIÓN
+[lx] : Lux (minúsculas)
+[fc] : Foot-candle (minúsculas)
+[ph] : Phot (minúsculas)
+
+=======================================================
+
+RADIACIÓN
+[Sv]   : Sievert (S mayúscula, v minúscula)
+[mSv]  : Milisievert (m minúscula, S mayúscula, v minúscula)
+[uSv]  : Microsievert (u minúscula, S mayúscula, v minúscula)
+[rem]  : Rem (minúsculas)
+[mrem] : Milirem (minúsculas)
+
+=======================================================
+
+ACELERACIÓN
+[m_s2]  : Metro/segundo² (minúsculas, con guion bajo)
+[km_h2] : Kilómetro/hora² (minúsculas, con guion bajo)
+[ft_s2] : Pie/segundo² (minúsculas, con guion bajo)
 [g]     : Gravedad estándar (minúscula)
+
 =======================================================
 
-# CAUDAL (FLUJO)
-[L_s]   : Litro por segundo (L mayúscula)
-[m3_s]  : Metro cúbico por segundo
-[gpm]   : Galón por minuto
+CAUDAL (FLUJO)
+[L_s]   : Litro/segundo (L mayúscula, guion bajo, s minúscula)
+[L_min] : Litro/minuto (L mayúscula, guion bajo, m, i, n minúsculas)
+[m3_s]  : Metro cúbico/segundo (minúsculas, con guion bajo)
+[m3_h]  : Metro cúbico/hora (minúsculas, con guion bajo)
+[gpm]   : Galón por minuto (minúsculas)
+
 =======================================================
 
-# DENSIDAD
-[kg_m3] : Kilogramo por metro cúbico
-[g_cm3] : Gramo por centímetro cúbico
-=======================================================
+DENSIDAD
+[kg_m3]  : Kilogramo/metro cúbico (minúsculas, con guion bajo)
+[g_cm3]  : Gramo/centímetro cúbico (minúsculas, con guion bajo)
+[lb_ft3] : Libra/pie cúbico (minúsculas, con guion bajo)
+[lb_in3] : Libra/pulgada cúbica (minúsculas, con guion bajo)
