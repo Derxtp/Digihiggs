@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digihiggs - Conversor de Longitud</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos base para la fuente */
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-100">
+    
+    <div class="relative min-h-screen md:flex">
+        <aside id="sidebar" class="bg-white text-gray-800 w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out z-30 shadow-lg">
+            
+            <a href="index.html" class="text-gray-800 flex items-center space-x-2 px-4">
+                <img src="logo.png" alt="Logo Digihiggs" class="w-8 h-8 rounded-full">
+                <span class="text-2xl font-extrabold">Digihiggs</span>
+            </a>
+
+            <nav>
+                <a href="index.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/longitud.png" alt="Longitud" class="w-6 h-6">
+                    <span class="font-medium">Longitud</span>
+                </a>
+                <a href="presion.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/presion.png" alt="Presión" class="w-6 h-6">
+                    <span class="font-medium">Presión</span>
+                </a>
+                <a href="temperatura.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/temperatura.png" alt="Temperatura" class="w-6 h-6">
+                    <span class="font-medium">Temperatura</span>
+                </a>
+                <a href="tiempo.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/tiempo.png" alt="Tiempo" class="w-6 h-6">
+                    <span class="font-medium">Tiempo</span>
+                </a>
+                <a href="masa.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/masa.png" alt="Masa" class="w-6 h-6">
+                    <span class="font-medium">Masa</span>
+                </a>
+                <a href="volumen.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/volumen.png" alt="Volumen" class="w-6 h-6">
+                    <span class="font-medium">Volumen</span>
+                </a>
+                <a href="anguloplano.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/anguloplano.png" alt="Ángulo Plano" class="w-6 h-6">
+                    <span class="font-medium">Ángulo Plano</span>
+                </a>
+                <a href="area.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/area.png" alt="Área" class="w-6 h-6">
+                    <span class="font-medium">Área</span>
+                </a>
+                <a href="energia.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/energia.png" alt="Energía" class="w-6 h-6">
+                    <span class="font-medium">Energía</span>
+                </a>
+                <a href="almacenamiento_de_datos.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/almacenamiento.png" alt="Almacenamiento" class="w-6 h-6">
+                    <span class="font-medium">Almacenamiento</span>
+                </a>
+                <a href="transferencia_datos.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/transferencia_datos.png" alt="Eficiencia Combustible" class="w-6 h-6">
+                    <span class="font-medium">Teansferencia de Datos</span>
+                </a>
+                <a href="velocidad.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/velocidad.png" alt="Velocidad" class="w-6 h-6">
+                    <span class="font-medium">Velocidad</span>
+                </a>
+                <a href="eficienciacombustible.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/combustible.png" alt="Eficiencia Combustible" class="w-6 h-6">
+                    <span class="font-medium">Eficiencia Combustible</span>
+                </a>
+                <a href="Fuerza.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/Fuerza.png" alt="Eficiencia Combustible" class="w-6 h-6">
+                    <span class="font-medium">Fuerza</span>
+                </a>
+                <a href="potencia.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/potencia.png" alt="Eficiencia Combustible" class="w-6 h-6">
+                    <span class="font-medium">potencia</span>
+                </a>
+                <a href="torque.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/torque.png" alt="Eficiencia Combustible" class="w-6 h-6">
+                    <span class="font-medium">Torque</span>
+                </a>
+                <a href="aceleracion.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/aceleracion.png" alt="Eficiencia Combustible" class="w-6 h-6">
+                    <span class="font-medium">aceleracion</span>
+                </a>
+                <a href="electricidad.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/elecricidad.png" alt="Eficiencia Combustible" class="w-6 h-6">
+                    <span class="font-medium">elecricidad</span>
+                </a>
+                <a href="frecuencia.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/frecuencia.png" alt="Eficiencia Combustible" class="w-6 h-6">
+                    <span class="font-medium">frecuencia</span>
+                </a>
+                <a href="diseno_UI.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/diseno.png" alt="Eficiencia Combustible" class="w-6 h-6">
+                    <span class="font-medium">diseño_UI</span>
+                </a>
+                <a href="iluminacion.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/iluminacion.png" alt="Eficiencia Combustible" class="w-6 h-6">
+                    <span class="font-medium">iluminacion</span>
+                </a>
+                <a href="radiacion.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/radiacion.png" alt="Eficiencia Combustible" class="w-6 h-6">
+                    <span class="font-medium">Radiación</span>
+                </a>
+                <a href="caudal.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/caudal.png" alt="Eficiencia Combustible" class="w-6 h-6">
+                    <span class="font-medium">Caudal (Flujo)</span>
+                </a>
+                <a href="densidad.html" class="nav-link flex items-center space-x-3 p-2 rounded-md text-gray-700 hover:bg-indigo-500 hover:text-white">
+                    <img src="img/densidad.png" alt="Eficiencia Combustible" class="w-6 h-6">
+                    <span class="font-medium">Densidad</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main id="main-content" class="flex-1 p-6 sm:p-10">
+            
+            <button id="sidebar-toggle" class="md:hidden fixed top-4 left-4 z-40 p-2 bg-white rounded-md shadow-md text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+
+            <div class="max-w-4xl">
+                <div class="w-full max-w-4xl bg-white rounded-2xl p-6 sm:p-10">
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-indigo-700 mb-2 text-center">Conversor de Fuerza</h1>
+                    <p class="text-center text-gray-500 mb-8">Convierte entre diferentes unidades de Fuerza.</p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8 items-stretch">
+                        <div class="flex-grow">
+                            <label for="inputValue-fuerza" class="block text-sm font-medium text-gray-700 mb-1">Valor de Origen</label>
+                            <input type="number" id="inputValue-fuerza" value="1" class="w-full p-4 border-2 border-indigo-300 rounded-xl focus:border-indigo-500 focus:ring-indigo-500 transition duration-150 text-2xl" placeholder="Introduce el valor" step="any" min="0"/>
+                        </div>
+                        <div>
+                            <div class="flex items-center space-x-2 mb-1">
+                                <label for="sourceUnit-fuerza" class="block text-sm font-medium text-gray-700">Unidad de Origen</label>
+                                <div class="relative group flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 cursor-help" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.79 4 4 0 1.105-.448 2.105-1.172 2.828l-1.036.874c-.524.442-1.053.98-1.053 1.697v.013" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01" />
+                                    </svg>
+                                    <div class="absolute bottom-full mb-2 w-48 bg-gray-800 text-white text-xs rounded-lg py-2 px-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-x-1/2 left-1/2 z-10 shadow-lg">
+                                        Elige la unidad de medida original para la conversión.
+                                        <svg class="absolute text-gray-800 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255" xml:space="preserve"><polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <select id="sourceUnit-fuerza" class="w-full h-full sm:h-auto sm:text-2xl p-4 border-2 border-indigo-300 bg-white rounded-xl focus:border-indigo-500 focus:ring-indigo-500 appearance-none pr-8 transition duration-150"></select>
+                        </div>
+                        <div>
+                            <label for="precision-fuerza" class="block text-sm font-medium text-gray-700 mb-1">Precisión</label>
+                            <select id="precision-fuerza" class="w-full h-full sm:h-auto sm:text-2xl p-4 border-2 border-indigo-300 bg-white rounded-xl focus:border-indigo-500 focus:ring-indigo-500 appearance-none pr-8 transition duration-150"></select>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6 border-b pb-2">Resultados</h3>
+                    <div id="resultsGrid-fuerza" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    
+    <script src="conversor.js"></script>
+<script src="main.js"></script>
+</body>
+</html>>
