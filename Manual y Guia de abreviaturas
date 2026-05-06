@@ -228,6 +228,14 @@ TORQUE (PAR MOTOR)
 
 =======================================================
 
+ACELERACIÓN
+[m_s2]  : Metro/segundo² (minúsculas, con guion bajo y número 2 al final)
+[km_h2] : Kilómetro/hora² (minúsculas, con guion bajo y número 2 al final)
+[ft_s2] : Pie/segundo² (minúsculas, con guion bajo y número 2 al final)
+[g]     : Gravedad estándar (g minúscula)
+
+======================================================
+
 ELECTRICIDAD
 [V]    : Voltio (MAYÚSCULA)
 [mV]   : Milivoltio (m minúscula, V mayúscula)
