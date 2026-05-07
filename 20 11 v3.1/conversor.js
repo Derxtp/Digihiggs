@@ -1,14 +1,13 @@
 #!/usr/bin/env node
 
-const PI = 3.141592653589793;
-
+const PI = Math.PI; 
 const FACTORES_CONVERSION = {
     longitud: {
-        factors: { 'm': 1, 'km': 1000, 'cm': 0.01, 'mm': 0.001, 'μm': 1e-6, 'nm': 1e-9, 'mi': 1609.34, 'yd': 0.9144, 'ft': 0.3048, 'in': 0.0254 },
+        factors: { 'm': 1, 'km': 1000, 'cm': 0.01, 'mm': 0.001, 'μm': 1e-6, 'nm': 1e-9, 'mi': 1609.344, 'yd': 0.9144, 'ft': 0.3048, 'in': 0.0254 },
         labels: { 'm': 'Metro (m)', 'km': 'Kilómetro (km)', 'cm': 'Centímetro (cm)', 'mm': 'Milímetro (mm)', 'μm': 'Micrómetro (μm)', 'nm': 'Nanómetro (nm)', 'mi': 'Milla (mi)', 'yd': 'Yarda (yd)', 'ft': 'Pie (ft)', 'in': 'Pulgada (in)' }
     },
     presion: {
-        factors: { 'Pa': 1, 'kPa': 1000, 'MPa': 1e6, 'atm': 101325, 'bar': 100000, 'Torr': 133.322, 'mmHg': 133.322, 'psi': 6894.76, 'mH2O': 9806.65 },
+        factors: { 'Pa': 1, 'kPa': 1000, 'MPa': 1e6, 'atm': 101325, 'bar': 100000, 'Torr': 101325 / 760, 'mmHg': 133.322387415, 'psi': 6894.757293168361, 'mH2O': 9806.65 },
         labels: { 'Pa': 'Pascal (Pa)', 'kPa': 'Kilopascal (kPa)', 'MPa': 'Megapascal (MPa)', 'atm': 'Atmósfera (atm)', 'bar': 'Bar (bar)', 'Torr': 'Torr (Torr)', 'mmHg': 'Milímetro de Mercurio (mmHg)', 'psi': 'Libra/Pulgada² (psi)', 'mH2O': 'Columna de Agua (mH₂O)' }
     },
     temperatura: {
@@ -22,15 +21,15 @@ const FACTORES_CONVERSION = {
         labels: { 's': 'Segundo (s)', 'ms': 'Milisegundo (ms)', 'us': 'Microsegundo (µs)', 'ns': 'Nanosegundo (ns)', 'min': 'Minuto (min)', 'h': 'Hora (h)', 'd': 'Día (d)', 'wk': 'Semana', 'mo': 'Mes (Promedio)', 'a': 'Año (Promedio)', 'lustro': 'Lustro', 'decada': 'Década', 'siglo': 'Siglo' }
     },
     masa: {
-        factors: { 'kg': 1, 'g': 0.001, 'mg': 1e-6, 'ug': 1e-9, 't': 1000, 'lb': 0.45359237, 'oz': 0.0283495231, 'ton_short': 907.18474, 'st': 6.35029318 },
+        factors: { 'kg': 1, 'g': 0.001, 'mg': 1e-6, 'ug': 1e-9, 't': 1000, 'lb': 0.45359237, 'oz': 0.028349523125, 'ton_short': 907.18474, 'st': 6.35029318 },
         labels: { 'kg': 'Kilogramo (kg)', 'g': 'Gramo (g)', 'mg': 'Miligramo (mg)', 'ug': 'Microgramo (µg)', 't': 'Tonelada Métrica (t)', 'lb': 'Libra (lb)', 'oz': 'Onza (oz)', 'ton_short': 'Tonelada Corta (ton US)', 'st': 'Stone (st)' }
     },
     volumen: {
-        factors: { 'm3': 1000, 'cm3': 0.001, 'L': 1, 'mL': 0.001, 'ft3_us': 28.316846592, 'yd3_us': 764.554857984, 'gal_us': 3.785411784, 'qt_us': 0.946352946, 'pt_us': 0.473176473, 'cup_us': 0.2365882365, 'floz_us': 0.0295735295625, 'tbsp_us': 0.01478676478125, 'tsp_us': 0.00492892159375, 'in3_us': 0.016387064, 'gal_uk': 4.54609, 'qt_uk': 1.1365225, 'pt_uk': 0.56826125, 'floz_uk': 0.0284130625, 'tbsp_uk': 0.0177581640625, 'tsp_uk': 0.00591938802083 },
+        factors: { 'm3': 1000, 'cm3': 0.001, 'L': 1, 'mL': 0.001, 'ft3_us': 28.316846592, 'yd3_us': 764.554857984, 'gal_us': 3.785411784, 'qt_us': 0.946352946, 'pt_us': 0.473176473, 'cup_us': 0.2365882365, 'floz_us': 0.0295735295625, 'tbsp_us': 0.01478676478125, 'tsp_us': 0.00492892159375, 'in3_us': 0.016387064, 'gal_uk': 4.54609, 'qt_uk': 1.1365225, 'pt_uk': 0.56826125, 'floz_uk': 0.0284130625, 'tbsp_uk': 0.0177581640625, 'tsp_uk': 0.005919388020833333 },
         labels: { 'm3': 'Metro Cúbico (m³)', 'cm3': 'Centímetro Cúbico (cm³)', 'L': 'Litro (L)', 'mL': 'Mililitro (mL)', 'ft3_us': 'Pie Cúbico (US)', 'yd3_us': 'Yarda Cúbica (US)', 'gal_us': 'Galón (US)', 'qt_us': 'Cuarto (US)', 'pt_us': 'Pinta (US)', 'cup_us': 'Taza (US)', 'floz_us': 'Onza Líquida (US)', 'tbsp_us': 'Cucharada (US)', 'tsp_us': 'Cucharadita (US)', 'in3_us': 'Pulgada Cúbica (US)', 'gal_uk': 'Galón (Imperial)', 'qt_uk': 'Cuarto (Imperial)', 'pt_uk': 'Pinta (Imperial)', 'floz_uk': 'Onza Líquida (Imperial)', 'tbsp_uk': 'Cucharada (Imperial)', 'tsp_uk': 'Cucharadita (Imperial)' }
     },
     angulo: {
-        factors: { 'degree': PI / 180, 'arcmin': PI / (180 * 60), 'arcsec': PI / (180 * 3600), 'radian': 1, 'revolution': 2 * PI, 'gon': PI / 200, 'milliradian': 0.001 },
+        factors: { 'degree': PI / 180, 'arcmin': PI / 10800, 'arcsec': PI / 648000, 'radian': 1, 'revolution': 2 * PI, 'gon': PI / 200, 'milliradian': 0.001 },
         labels: { 'degree': 'Grado Sexagesimal (°)', 'arcmin': "Minuto de Arco (')", 'arcsec': 'Segundo de Arco (")', 'radian': 'Radián (rad)', 'revolution': 'Revolución (rev)', 'gon': 'Grado Centesimal (gon)', 'milliradian': 'Milirradián (mrad)' }
     },
     area: {
@@ -38,7 +37,7 @@ const FACTORES_CONVERSION = {
         labels: { 'm2': 'Metro Cuadrado (m²)', 'cm2': 'Centímetro Cuadrado (cm²)', 'mm2': 'Milímetro Cuadrado (mm²)', 'km2': 'Kilómetro Cuadrado (km²)', 'mi2': 'Milla Cuadrada (mi²)', 'yd2': 'Yarda Cuadrada (yd²)', 'ft2': 'Pie Cuadrado (ft²)', 'in2': 'Pulgada Cuadrada (in²)', 'ha': 'Hectárea (ha)', 'ac': 'Acre (ac)' }
     },
     energia: {
-        factors: { 'J': 1.0, 'kJ': 1000.0, 'cal_th': 4.184, 'kcal': 4184.0, 'eV': 1.602176634e-19, 'Wh': 3600.0, 'kWh': 3600000.0, 'Ws': 1.0, 'Cal_nut': 4184.0, 'BTU': 1055.056, 'thm': 105505600.0, 'ft_lbf': 1.35581794833 },
+        factors: { 'J': 1.0, 'kJ': 1000.0, 'cal_th': 4.184, 'kcal': 4184.0, 'eV': 1.602176634e-19, 'Wh': 3600.0, 'kWh': 3600000.0, 'Ws': 1.0, 'Cal_nut': 4184.0, 'BTU': 1055.05585262, 'thm': 105505585.262, 'ft_lbf': 1.3558179483314004 },
         labels: { 'J': 'Joule (J)', 'kJ': 'Kilojoule (kJ)', 'cal_th': 'Caloría (Térmica)', 'kcal': 'Kilocaloría (kcal)', 'eV': 'Electronvoltio (eV)', 'Wh': 'Vatio-hora (Wh)', 'kWh': 'Kilovatio-hora (kWh)', 'Ws': 'Vatio-segundo (Ws)', 'Cal_nut': 'Caloría (Nutricional)', 'BTU': 'Unidad Térmica Británica (BTU)', 'thm': 'Termia (US)', 'ft_lbf': 'Pie-libra fuerza (ft-lbf)' }
     },
     almacenamiento: {
@@ -72,30 +71,23 @@ const FACTORES_CONVERSION = {
             { id: 'PiB', label: 'Pebibyte', abbr: 'PiB', factor: 8 * 1024 ** 5, type: 'Binaria' }
         ]
     },
-transferencia: {
+    transferencia: {
         K_BIN: 1024,
         k_METRIC: 1000,
         UNITS: [
-            // --- Bits por segundo (bps) ---
             { id: 'bps', label: 'bit por segundo', abbr: 'bps', factor: 1, type: 'Base' },
             { id: 'kbps', label: 'Kilobit por segundo', abbr: 'kbps', factor: 1000, type: 'Métrica' },
             { id: 'Mbps', label: 'Megabit por segundo', abbr: 'Mbps', factor: 1000 ** 2, type: 'Métrica' },
             { id: 'Gbps', label: 'Gigabit por segundo', abbr: 'Gbps', factor: 1000 ** 3, type: 'Métrica' },
             { id: 'Tbps', label: 'Terabit por segundo', abbr: 'Tbps', factor: 1000 ** 4, type: 'Métrica' },
-            
-            // --- Unidades Binarias (IEC) para red ---
             { id: 'Kibps', label: 'Kibibit por segundo', abbr: 'Kibps', factor: 1024, type: 'Binaria' },
             { id: 'Mibps', label: 'Mebibit por segundo', abbr: 'Mibps', factor: 1024 ** 2, type: 'Binaria' },
             { id: 'Gibps', label: 'Gibibit por segundo', abbr: 'Gibps', factor: 1024 ** 3, type: 'Binaria' },
-
-            // --- Bytes por segundo (B/s) ---
             { id: 'B_s', label: 'Byte por segundo', abbr: 'B/s', factor: 8, type: 'Base' },
             { id: 'KB_s', label: 'Kilobyte por segundo', abbr: 'KB/s', factor: 8 * 1000, type: 'Métrica' },
             { id: 'MB_s', label: 'Megabyte por segundo', abbr: 'MB/s', factor: 8 * 1000 ** 2, type: 'Métrica' },
             { id: 'GB_s', label: 'Gigabyte por segundo', abbr: 'GB/s', factor: 8 * 1000 ** 3, type: 'Métrica' },
             { id: 'TB_s', label: 'Terabyte por segundo', abbr: 'TB/s', factor: 8 * 1000 ** 4, type: 'Métrica' },
-
-            // --- Unidades Binarias de Bytes (IEC) ---
             { id: 'KiB_s', label: 'Kibibyte por segundo', abbr: 'KiB/s', factor: 8 * 1024, type: 'Binaria' },
             { id: 'MiB_s', label: 'Mebibyte por segundo', abbr: 'MiB/s', factor: 8 * 1024 ** 2, type: 'Binaria' },
             { id: 'GiB_s', label: 'Gibibyte por segundo', abbr: 'GiB/s', factor: 8 * 1024 ** 3, type: 'Binaria' }
@@ -105,7 +97,7 @@ transferencia: {
         UNITS: [
             { id: 'ms', name: 'Metro por segundo', symbol: 'm/s', factor: 1.0 },
             { id: 'kmh', name: 'Kilómetro por hora', symbol: 'km/h', factor: 1 / 3.6 },
-             { id: 'mmin', name: 'Metro por minuto', symbol: 'm/min', factor: 1 / 60.0 },
+            { id: 'mmin', name: 'Metro por minuto', symbol: 'm/min', factor: 1 / 60.0 },
             { id: 'kn', name: 'Nudo', symbol: 'kn (Milla Náutica/h)', factor: 1852 / 3600.0 },
             { id: 'mph', name: 'Milla por hora', symbol: 'mph', factor: 1609.344 / 3600.0 },
             { id: 'fts', name: 'Pie por segundo', symbol: 'ft/s', factor: 0.3048 }
@@ -128,15 +120,15 @@ transferencia: {
         labels: { 'N': 'Newton (N)', 'kN': 'Kilonewton (kN)', 'lbf': 'Libra-fuerza (lbf)', 'dyn': 'Dina (dyn)', 'kgf': 'Kilogramo-fuerza (kgf)' }
     },
     potencia: {
-        factors: { 'W': 1, 'kW': 1000, 'MW': 1000000, 'HP': 745.69987158, 'CV': 735.49875, 'BTU_h': 0.293071 },
+        factors: { 'W': 1, 'kW': 1000, 'MW': 1000000, 'HP': 745.6998715822702, 'CV': 735.49875, 'BTU_h': 0.2930710701722222 },
         labels: { 'W': 'Vatio (W)', 'kW': 'Kilovatio (kW)', 'MW': 'Megavatio (MW)', 'HP': 'Caballo de fuerza (HP)', 'CV': 'Caballo de vapor (CV)', 'BTU_h': 'BTU por hora (BTU/h)' }
     },
     torque: {
-        factors: { 'Nm': 1, 'lb_ft': 1.3558179483314, 'kgf_m': 9.80665, 'in_lb': 0.112984829 },
+        factors: { 'Nm': 1, 'lb_ft': 1.3558179483314004, 'kgf_m': 9.80665, 'in_lb': 0.1129848290276167 },
         labels: { 'Nm': 'Newton-metro (N·m)', 'lb_ft': 'Libra-pie (lb·ft)', 'kgf_m': 'Kilogramo-metro (kgf·m)', 'in_lb': 'Pulgada-libra (in·lb)' }
     },
     aceleracion: {
-        factors: { 'm_s2': 1, 'km_h2': 1/12960, 'ft_s2': 0.3048, 'g': 9.80665 },
+        factors: { 'm_s2': 1, 'km_h2': 1 / 12960, 'ft_s2': 0.3048, 'g': 9.80665 },
         labels: { 'm_s2': 'Metro/segundo² (m/s²)', 'km_h2': 'Kilómetro/hora²', 'ft_s2': 'Pie/segundo²', 'g': 'Gravedad estándar (g)' }
     },
     electricidad: {
@@ -144,15 +136,15 @@ transferencia: {
         labels: { 'V': 'Voltio (V)', 'mV': 'Milivoltio (mV)', 'kV': 'Kilovoltio (kV)', 'A': 'Amperio (A)', 'mA': 'Miliamperio (mA)', 'Ohm': 'Ohmio (Ω)', 'kOhm': 'Kilohmio (kΩ)' }
     },
     frecuencia: {
-        factors: { 'Hz': 1, 'kHz': 1e3, 'MHz': 1e6, 'GHz': 1e9, 'THz': 1e12, 'rad_s': 0.159155, 'rpm': 0.0166667 },
+        factors: { 'Hz': 1, 'kHz': 1e3, 'MHz': 1e6, 'GHz': 1e9, 'THz': 1e12, 'rad_s': 1 / (2 * PI), 'rpm': 1 / 60 },
         labels: { 'Hz': 'Hercio (Hz)', 'kHz': 'Kilohercio (kHz)', 'MHz': 'Megahercio (MHz)', 'GHz': 'Gigahercio (GHz)', 'THz': 'Terahercio (THz)', 'rad_s': 'Radián/segundo', 'rpm': 'RPM' }
     },
     diseno: {
-        factors: { 'px': 1, 'pt': 1.333333, 'pc': 16, 'in_print': 96, 'cm_print': 37.795275 },
+        factors: { 'px': 1, 'pt': 4 / 3, 'pc': 16, 'in_print': 96, 'cm_print': 96 / 2.54 },
         labels: { 'px': 'Píxel (px)', 'pt': 'Punto (pt)', 'pc': 'Pica (pc)', 'in_print': 'Pulgada física', 'cm_print': 'Centímetro físico' }
     },
     iluminacion: {
-        factors: { 'lx': 1, 'fc': 10.7639, 'ph': 10000 },
+        factors: { 'lx': 1, 'fc': 1 / 0.09290304, 'ph': 10000 },
         labels: { 'lx': 'Lux (lx)', 'fc': 'Foot-candle', 'ph': 'Phot' }
     },
     radiacion: {
@@ -160,30 +152,29 @@ transferencia: {
         labels: { 'Sv': 'Sievert (Sv)', 'mSv': 'Milisievert (mSv)', 'uSv': 'Microsievert (µv)', 'rem': 'Rem', 'mrem': 'Milirem' }
     },
     caudal: {
-        factors: { 'L_s': 1, 'L_min': 1/60, 'm3_s': 1000, 'm3_h': 1/3.6, 'gpm': 0.06309 },
+        factors: { 'L_s': 1, 'L_min': 1 / 60, 'm3_s': 1000, 'm3_h': 1 / 3.6, 'gpm': 3.785411784 / 60 },
         labels: { 'L_s': 'Litro/segundo', 'L_min': 'Litro/minuto', 'm3_s': 'Metro cúbico/segundo', 'm3_h': 'Metro cúbico/hora', 'gpm': 'Galón por minuto (US)' }
     },
     densidad: {
-        factors: { 'kg_m3': 1, 'g_cm3': 1000, 'lb_ft3': 16.0185, 'lb_in3': 27679.9 },
+        factors: { 'kg_m3': 1, 'g_cm3': 1000, 'lb_ft3': 16.01846337396014, 'lb_in3': 27679.904710203105 },
         labels: { 'kg_m3': 'Kilogramo/metro cúbico', 'g_cm3': 'Gramo/centímetro cúbico', 'lb_ft3': 'Libra/pie cúbico', 'lb_in3': 'Libra/pulgada cúbica' }
     }
-
 };
 
 // ============================================================================
 // CONEXIÓN UNIVERSAL (WEB + LINUX)
 // ============================================================================
 
-// 1. Si estamos en el navegador web
+// 1navegador web
 if (typeof window !== 'undefined') {
     window.FACTORES_CONVERSION = FACTORES_CONVERSION;
 }
 
-// 2. Si estamos ejecutando el CLI en la terminal de Linux
+// 2CLI en la terminal de Linux
 if (typeof process !== 'undefined' && typeof window === 'undefined') {
     const args = process.argv.slice(2);
 
-    // MENÚ DE AYUDA
+    
     if (args.length < 3 || args.includes('-h') || args.includes('--help')) {
         console.log("\n=======================================================");
         console.log("🌌 DIGIHIGGS CLI - Herramienta de Conversión");
@@ -218,7 +209,7 @@ if (typeof process !== 'undefined' && typeof window === 'undefined') {
 
     const temp = FACTORES_CONVERSION.temperatura;
     
-    // Corregido: toKelvin y fromKelvin
+    
     if (temp.units.includes(origen) && temp.units.includes(destino)) {
         resultado = temp.fromKelvin[destino](temp.toKelvin[origen](valor));
     } else {

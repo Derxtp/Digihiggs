@@ -1,14 +1,20 @@
-// OBTENEMOS LOS DATOS DE CONVERSOR.JS AUTOMÁTICAMENTE
 const DB = window.FACTORES_CONVERSION;
 
 function createResultCard(label, unitId, converterType, themeColor) {
     return `
-        <div id="card-${converterType}-${unitId}" class="result-card bg-gray-50 p-4 rounded-lg shadow-sm border border-gray-200 transition-all duration-200">
-            <p class="text-sm font-medium text-${themeColor}-600">${label}</p>
-            <p id="output-${converterType}-${unitId}" class="text-xl font-bold text-gray-900 mt-1 break-words">0.00</p>
+        <div id="card-${converterType}-${unitId}" class="result-card bg-gray-50 p-4 rounded-lg shadow-sm border border-gray-200 transition-all duration-200 flex flex-col justify-between">
+            <div>
+                <p class="text-sm font-medium text-${themeColor}-600">${label}</p>
+                <p id="output-${converterType}-${unitId}" class="text-xl font-bold text-gray-900 mt-1 break-words">0.00</p>
+            </div>
+            
+            <!-- ESTE ES EL CONTENEDOR QUE FALTABA -->
+            <div id="desarrollo-${converterType}-${unitId}" class="mt-3 pt-3 border-t border-${themeColor}-200 text-xs font-mono text-gray-500 hidden">
+            </div>
         </div>
     `;
 }
+
 // ==============================================================================================================
 
 function initializeLengthConverter() {
@@ -44,6 +50,24 @@ function convertLength() {
         const result = valueInMeters / DB.longitud.factors[targetUnit];
         const formattedResult = (targetUnit === sourceUnit) ? value.toString() : result.toLocaleString(undefined, { maximumFractionDigits: precision });
         document.getElementById(`output-longitud-${targetUnit}`).textContent = formattedResult;
+
+        
+        const factorOrigen = DB.longitud.factors[sourceUnit];
+        const factorDestino = DB.longitud.factors[targetUnit];
+        const desarrolloElement = document.getElementById(`desarrollo-longitud-${targetUnit}`);
+        
+        if (desarrolloElement) {
+            if (targetUnit === sourceUnit) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-indigo-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) ${value} × ${factorOrigen} = ${valueInMeters}</div>
+                    <div>2) ${valueInMeters} ÷ ${factorDestino} = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
 
         const card = document.getElementById(`card-longitud-${targetUnit}`);
         const isSource = targetUnit === sourceUnit;
@@ -81,6 +105,7 @@ function convertPressure() {
     const value = parseFloat(document.getElementById('inputValue-presion').value) || 0;
     const sourceUnit = document.getElementById('sourceUnit-presion').value;
     const precision = parseInt(document.getElementById('precision-presion').value, 10);
+    
     const valueInPascals = value * DB.presion.factors[sourceUnit];
 
     for (const targetUnit in DB.presion.factors) {
@@ -88,12 +113,31 @@ function convertPressure() {
         const formattedResult = (targetUnit === sourceUnit) ? value.toString() : result.toLocaleString(undefined, { maximumFractionDigits: precision });
         document.getElementById(`output-presion-${targetUnit}`).textContent = formattedResult;
 
+        const factorOrigen = DB.presion.factors[sourceUnit];
+        const factorDestino = DB.presion.factors[targetUnit];
+        const desarrolloElement = document.getElementById(`desarrollo-presion-${targetUnit}`);
+        
+        if (desarrolloElement) {
+            if (targetUnit === sourceUnit) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-red-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) ${value} × ${factorOrigen} = ${valueInPascals}</div>
+                    <div>2) ${valueInPascals} ÷ ${factorDestino} = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
+
         const card = document.getElementById(`card-presion-${targetUnit}`);
-        const isSource = targetUnit === sourceUnit;
-        card.classList.toggle('bg-red-50', isSource);
-        card.classList.toggle('border-red-400', isSource);
-        card.classList.toggle('bg-gray-50', !isSource);
-        card.classList.toggle('border-gray-200', !isSource);
+        if (card) {
+            const isSource = targetUnit === sourceUnit;
+            card.classList.toggle('bg-red-50', isSource);
+            card.classList.toggle('border-red-400', isSource);
+            card.classList.toggle('bg-gray-50', !isSource);
+            card.classList.toggle('border-gray-200', !isSource);
+        }
     }
 }
 // ==============================================================================================================
@@ -125,10 +169,25 @@ function convertTemperature() {
     const sourceUnit = document.getElementById('sourceUnit-temperatura').value;
     const precision = parseInt(document.getElementById('precision-temperatura').value, 10);
     const valueInKelvin = DB.temperatura.toKelvin[sourceUnit](value);
+    
     DB.temperatura.units.forEach(targetUnit => {
         const result = DB.temperatura.fromKelvin[targetUnit](valueInKelvin);
         const formattedResult = (targetUnit === sourceUnit) ? value.toString() : result.toFixed(precision);
         document.getElementById(`output-temperatura-${targetUnit}`).textContent = formattedResult;
+
+        const desarrolloElement = document.getElementById(`desarrollo-temperatura-${targetUnit}`);
+        if (desarrolloElement) {
+            if (targetUnit === sourceUnit) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-amber-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) Convertir a Kelvin = ${valueInKelvin.toFixed(4)}</div>
+                    <div>2) Kelvin a destino = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
 
         const card = document.getElementById(`card-temperatura-${targetUnit}`);
         const isSource = targetUnit === sourceUnit;
@@ -139,7 +198,6 @@ function convertTemperature() {
     });
 }
 // ==============================================================================================================
-
 
 function initializeTimeConverter() {
     const sourceUnitSelect = document.getElementById('sourceUnit-tiempo');
@@ -174,6 +232,24 @@ function convertTime() {
         const formattedResult = (targetUnit === sourceUnit) ? value.toString() : result.toLocaleString(undefined, { maximumFractionDigits: precision });
         document.getElementById(`output-tiempo-${targetUnit}`).textContent = formattedResult;
 
+        const factorOrigen = DB.tiempo.factors[sourceUnit];
+        const factorDestino = DB.tiempo.factors[targetUnit];
+        const desarrolloElement = document.getElementById(`desarrollo-tiempo-${targetUnit}`);
+        
+        if (desarrolloElement) {
+            if (targetUnit === sourceUnit) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-orange-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) ${value} × ${factorOrigen} = ${valueInSeconds}</div>
+                    <div>2) ${valueInSeconds} ÷ ${factorDestino} = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
+        
+
         const card = document.getElementById(`card-tiempo-${targetUnit}`);
         const isSource = targetUnit === sourceUnit;
         card.classList.toggle('bg-orange-50', isSource);
@@ -183,7 +259,6 @@ function convertTime() {
     }
 }
 // ==============================================================================================================
-
 
 function initializeMassConverter() {
     const sourceUnitSelect = document.getElementById('sourceUnit-masa');
@@ -218,6 +293,25 @@ function convertMass() {
         const formattedResult = (targetUnit === sourceUnit) ? value.toString() : result.toLocaleString(undefined, { maximumFractionDigits: precision });
         document.getElementById(`output-masa-${targetUnit}`).textContent = formattedResult;
 
+        
+        const factorOrigen = DB.masa.factors[sourceUnit];
+        const factorDestino = DB.masa.factors[targetUnit];
+        const desarrolloElement = document.getElementById(`desarrollo-masa-${targetUnit}`);
+        
+        if (desarrolloElement) {
+            if (targetUnit === sourceUnit) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-green-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) ${value} × ${factorOrigen} = ${valueInKilograms}</div>
+                    <div>2) ${valueInKilograms} ÷ ${factorDestino} = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
+        
+
         const card = document.getElementById(`card-masa-${targetUnit}`);
         const isSource = targetUnit === sourceUnit;
         card.classList.toggle('bg-green-50', isSource);
@@ -227,7 +321,6 @@ function convertMass() {
     }
 }
 // ==============================================================================================================
-
 
 function initializeVolumeConverter() {
     const sourceUnitSelect = document.getElementById('sourceUnit-volumen');
@@ -262,6 +355,25 @@ function convertVolume() {
         const formattedResult = (targetUnit === sourceUnit) ? value.toString() : result.toLocaleString(undefined, { maximumFractionDigits: precision });
         document.getElementById(`output-volumen-${targetUnit}`).textContent = formattedResult;
 
+        
+        const factorOrigen = DB.volumen.factors[sourceUnit];
+        const factorDestino = DB.volumen.factors[targetUnit];
+        const desarrolloElement = document.getElementById(`desarrollo-volumen-${targetUnit}`);
+        
+        if (desarrolloElement) {
+            if (targetUnit === sourceUnit) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-teal-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) ${value} × ${factorOrigen} = ${valueInLiters}</div>
+                    <div>2) ${valueInLiters} ÷ ${factorDestino} = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
+        
+
         const card = document.getElementById(`card-volumen-${targetUnit}`);
         const isSource = targetUnit === sourceUnit;
         card.classList.toggle('bg-teal-50', isSource);
@@ -271,7 +383,6 @@ function convertVolume() {
     }
 }
 // ==============================================================================================================
-
 
 function initializeAngleConverter() {
     const sourceUnitSelect = document.getElementById('sourceUnit-anguloplano');
@@ -306,6 +417,25 @@ function convertAngle() {
         const formattedResult = (targetUnit === sourceUnit) ? value.toString() : result.toLocaleString(undefined, { maximumFractionDigits: precision });
         document.getElementById(`output-anguloplano-${targetUnit}`).textContent = formattedResult;
 
+        
+        const factorOrigen = DB.angulo.factors[sourceUnit];
+        const factorDestino = DB.angulo.factors[targetUnit];
+        const desarrolloElement = document.getElementById(`desarrollo-anguloplano-${targetUnit}`);
+        
+        if (desarrolloElement) {
+            if (targetUnit === sourceUnit) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-indigo-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) ${value} × ${factorOrigen} = ${valueInRadians.toFixed(6)}</div>
+                    <div>2) ${valueInRadians.toFixed(6)} ÷ ${factorDestino} = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
+        
+
         const card = document.getElementById(`card-anguloplano-${targetUnit}`);
         const isSource = targetUnit === sourceUnit;
         card.classList.toggle('bg-indigo-50', isSource);
@@ -315,7 +445,6 @@ function convertAngle() {
     }
 }
 // ==============================================================================================================
-
 
 function initializeAreaConverter() {
     const sourceUnitSelect = document.getElementById('sourceUnit-area');
@@ -350,6 +479,25 @@ function convertArea() {
         const formattedResult = (targetUnit === sourceUnit) ? value.toString() : result.toLocaleString(undefined, { maximumFractionDigits: precision });
         document.getElementById(`output-area-${targetUnit}`).textContent = formattedResult;
 
+        
+        const factorOrigen = DB.area.factors[sourceUnit];
+        const factorDestino = DB.area.factors[targetUnit];
+        const desarrolloElement = document.getElementById(`desarrollo-area-${targetUnit}`);
+        
+        if (desarrolloElement) {
+            if (targetUnit === sourceUnit) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-cyan-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) ${value} × ${factorOrigen} = ${valueInMeters2}</div>
+                    <div>2) ${valueInMeters2} ÷ ${factorDestino} = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
+        
+
         const card = document.getElementById(`card-area-${targetUnit}`);
         const isSource = targetUnit === sourceUnit;
         card.classList.toggle('bg-cyan-50', isSource);
@@ -359,7 +507,6 @@ function convertArea() {
     }
 }
 // ==============================================================================================================
-
 
 function initializeEnergyConverter() {
     const sourceUnitSelect = document.getElementById('sourceUnit-energia');
@@ -394,6 +541,25 @@ function convertEnergy() {
         const formattedResult = (targetUnit === sourceUnit) ? value.toString() : result.toLocaleString(undefined, { maximumFractionDigits: precision });
         document.getElementById(`output-energia-${targetUnit}`).textContent = formattedResult;
 
+        
+        const factorOrigen = DB.energia.factors[sourceUnit];
+        const factorDestino = DB.energia.factors[targetUnit];
+        const desarrolloElement = document.getElementById(`desarrollo-energia-${targetUnit}`);
+        
+        if (desarrolloElement) {
+            if (targetUnit === sourceUnit) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-yellow-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) ${value} × ${factorOrigen} = ${valueInJoules}</div>
+                    <div>2) ${valueInJoules} ÷ ${factorDestino} = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
+        
+
         const card = document.getElementById(`card-energia-${targetUnit}`);
         const isSource = targetUnit === sourceUnit;
         card.classList.toggle('bg-yellow-50', isSource);
@@ -403,7 +569,6 @@ function convertEnergy() {
     }
 }
 // ==============================================================================================================
-
 
 function initializeDataStorageConverter() {
     const sourceUnitSelect = document.getElementById('sourceUnit-almacenamiento');
@@ -446,6 +611,9 @@ function convertDataStorage() {
             const cardElement = document.getElementById(`card-almacenamiento-${unit.id}`);
             cardElement.classList.remove('border-blue-700', 'bg-blue-50');
             cardElement.classList.add('border-gray-400', 'bg-gray-100');
+            
+            const desarrolloElement = document.getElementById(`desarrollo-almacenamiento-${unit.id}`);
+            if (desarrolloElement) desarrolloElement.classList.add('hidden');
         });
         return;
     }
@@ -463,6 +631,22 @@ function convertDataStorage() {
         }
         document.getElementById(`output-almacenamiento-${targetUnit.id}`).textContent = formattedValue;
 
+        
+        const desarrolloElement = document.getElementById(`desarrollo-almacenamiento-${targetUnit.id}`);
+        if (desarrolloElement) {
+            if (targetUnit.id === sourceId) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-blue-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) ${sourceValue} × ${sourceUnit.factor} = ${bits} (Bits base)</div>
+                    <div>2) ${bits} ÷ ${targetUnit.factor} = <span class="font-bold text-gray-700">${formattedValue}</span></div>
+                `;
+            }
+        }
+        
+
         const cardElement = document.getElementById(`card-almacenamiento-${targetUnit.id}`);
         const isSource = targetUnit.id === sourceId;
         cardElement.classList.toggle('border-blue-400', isSource);
@@ -471,19 +655,6 @@ function convertDataStorage() {
         cardElement.classList.toggle('bg-gray-50', !isSource);
     });
 }
-
-
-
-// ==============================================================================================================
-
-
-
-
-
-
-
-
-
 // ==============================================================================================================
 
 function convertSpeed() {
@@ -496,6 +667,8 @@ function convertSpeed() {
     if (isNaN(inputValue) || inputValue < 0) {
         DB.velocidad.UNITS.forEach(unit => {
             document.getElementById(`output-velocidad-${unit.id}`).textContent = 'Inválido';
+            const desarrolloElement = document.getElementById(`desarrollo-velocidad-${unit.id}`);
+            if (desarrolloElement) desarrolloElement.classList.add('hidden');
         });
         return;
     }
@@ -506,6 +679,22 @@ function convertSpeed() {
         const convertedValue = valueInMetersPerSecond / targetUnit.factor;
         const formattedResult = (targetUnit.id === sourceUnitId) ? inputValue.toString() : convertedValue.toLocaleString(undefined, { maximumFractionDigits: precision });
         document.getElementById(`output-velocidad-${targetUnit.id}`).textContent = formattedResult;
+
+        
+        const desarrolloElement = document.getElementById(`desarrollo-velocidad-${targetUnit.id}`);
+        if (desarrolloElement) {
+            if (targetUnit.id === sourceUnitId) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-indigo-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) ${inputValue} × ${sourceUnit.factor} = ${valueInMetersPerSecond}</div>
+                    <div>2) ${valueInMetersPerSecond} ÷ ${targetUnit.factor} = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
+        
 
         const card = document.getElementById(`card-velocidad-${targetUnit.id}`);
         const isSource = targetUnit.id === sourceUnitId;
@@ -543,7 +732,6 @@ function initializeSpeedConverter() {
 }
 // ==============================================================================================================
 
-
 function convertFuelEfficiency() {
     const inputEl = document.getElementById('inputValue-eficiencia');
     const selectEl = document.getElementById('selectUnit-eficiencia');
@@ -557,6 +745,8 @@ function convertFuelEfficiency() {
         Object.keys(DB.eficiencia.UNITS).forEach(key => {
             const outputEl = document.getElementById(`output-eficiencia-${key}`);
             if (outputEl) outputEl.textContent = 'Inválido';
+            const desarrolloElement = document.getElementById(`desarrollo-eficiencia-${key}`);
+            if (desarrolloElement) desarrolloElement.classList.add('hidden');
         });
         return;
     }
@@ -567,6 +757,23 @@ function convertFuelEfficiency() {
         const result = targetUnit.isInverse ? targetUnit.factorToKMPL / baseKMPLValue : baseKMPLValue / targetUnit.factorToKMPL;
         const formattedResult = (targetKey === sourceKey) ? inputValue.toString() : result.toFixed(precision);
         document.getElementById(`output-eficiencia-${targetKey}`).textContent = formattedResult;
+        
+        
+        const desarrolloElement = document.getElementById(`desarrollo-eficiencia-${targetKey}`);
+        if (desarrolloElement) {
+            if (targetKey === sourceKey) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-teal-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) Factor base KM/L = ${baseKMPLValue.toFixed(4)}</div>
+                    <div>2) Cálculo con inversa = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
+        
+
         const card = document.getElementById(`card-eficiencia-${targetKey}`);
         const isSource = targetKey === sourceKey;
         card.classList.toggle('bg-teal-50', isSource);
@@ -605,7 +812,6 @@ function initializeFuelEfficiencyConverter() {
 }
 // ==============================================================================================================
 
-
 function initializeForceConverter() {
     const sourceUnitSelect = document.getElementById('sourceUnit-fuerza');
     const resultsGrid = document.getElementById('resultsGrid-fuerza');
@@ -616,7 +822,7 @@ function initializeForceConverter() {
         option.value = unit;
         option.textContent = DB.fuerza.labels[unit];
         sourceUnitSelect.appendChild(option);
-        resultsGrid.innerHTML += createResultCard(DB.fuerza.labels[unit], unit, 'fuerza', 'red'); // Usé rojo, puedes cambiarlo
+        resultsGrid.innerHTML += createResultCard(DB.fuerza.labels[unit], unit, 'fuerza', 'red'); 
     }
     for (let i = 0; i <= 8; i++) {
         const option = document.createElement('option');
@@ -625,7 +831,7 @@ function initializeForceConverter() {
         precisionSelect.appendChild(option);
     }
     precisionSelect.value = 8;
-    sourceUnitSelect.value = 'N'; // Newton por defecto
+    sourceUnitSelect.value = 'N'; 
     convertForce();
 }
 
@@ -639,6 +845,25 @@ function convertForce() {
         const result = valueInNewtons / DB.fuerza.factors[targetUnit];
         const formattedResult = (targetUnit === sourceUnit) ? value.toString() : result.toLocaleString(undefined, { maximumFractionDigits: precision });
         document.getElementById(`output-fuerza-${targetUnit}`).textContent = formattedResult;
+
+        
+        const factorOrigen = DB.fuerza.factors[sourceUnit];
+        const factorDestino = DB.fuerza.factors[targetUnit];
+        const desarrolloElement = document.getElementById(`desarrollo-fuerza-${targetUnit}`);
+        
+        if (desarrolloElement) {
+            if (targetUnit === sourceUnit) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-red-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) ${value} × ${factorOrigen} = ${valueInNewtons}</div>
+                    <div>2) ${valueInNewtons} ÷ ${factorDestino} = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
+        
 
         const card = document.getElementById(`card-fuerza-${targetUnit}`);
         const isSource = targetUnit === sourceUnit;
@@ -660,7 +885,6 @@ function initializePowerConverter() {
         option.value = unit;
         option.textContent = DB.potencia.labels[unit];
         sourceUnitSelect.appendChild(option);
-        // Usé 'yellow' para potencia, puedes cambiarlo al color de Tailwind que prefieras
         resultsGrid.innerHTML += createResultCard(DB.potencia.labels[unit], unit, 'potencia', 'yellow'); 
     }
     for (let i = 0; i <= 8; i++) {
@@ -670,7 +894,7 @@ function initializePowerConverter() {
         precisionSelect.appendChild(option);
     }
     precisionSelect.value = 8;
-    sourceUnitSelect.value = 'W'; // Inicia en Vatios por defecto
+    sourceUnitSelect.value = 'W'; 
     convertPower();
 }
 
@@ -684,6 +908,25 @@ function convertPower() {
         const result = valueInWatts / DB.potencia.factors[targetUnit];
         const formattedResult = (targetUnit === sourceUnit) ? value.toString() : result.toLocaleString(undefined, { maximumFractionDigits: precision });
         document.getElementById(`output-potencia-${targetUnit}`).textContent = formattedResult;
+
+        
+        const factorOrigen = DB.potencia.factors[sourceUnit];
+        const factorDestino = DB.potencia.factors[targetUnit];
+        const desarrolloElement = document.getElementById(`desarrollo-potencia-${targetUnit}`);
+        
+        if (desarrolloElement) {
+            if (targetUnit === sourceUnit) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-yellow-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) ${value} × ${factorOrigen} = ${valueInWatts}</div>
+                    <div>2) ${valueInWatts} ÷ ${factorDestino} = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
+        
 
         const card = document.getElementById(`card-potencia-${targetUnit}`);
         const isSource = targetUnit === sourceUnit;
@@ -714,7 +957,7 @@ function initializeTorqueConverter() {
         precisionSelect.appendChild(option);
     }
     precisionSelect.value = 4; 
-    sourceUnitSelect.value = 'Nm'; // Newton-metro por defecto
+    sourceUnitSelect.value = 'Nm'; 
     convertTorque();
 }
 
@@ -728,6 +971,25 @@ function convertTorque() {
         const result = valueInNm / DB.torque.factors[targetUnit];
         const formattedResult = (targetUnit === sourceUnit) ? value.toString() : result.toLocaleString(undefined, { maximumFractionDigits: precision });
         document.getElementById(`output-torque-${targetUnit}`).textContent = formattedResult;
+
+        
+        const factorOrigen = DB.torque.factors[sourceUnit];
+        const factorDestino = DB.torque.factors[targetUnit];
+        const desarrolloElement = document.getElementById(`desarrollo-torque-${targetUnit}`);
+        
+        if (desarrolloElement) {
+            if (targetUnit === sourceUnit) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-purple-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) ${value} × ${factorOrigen} = ${valueInNm}</div>
+                    <div>2) ${valueInNm} ÷ ${factorDestino} = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
+        
 
         const card = document.getElementById(`card-torque-${targetUnit}`);
         const isSource = targetUnit === sourceUnit;
@@ -758,7 +1020,7 @@ function initializeAceleracionConverter() {
         precisionSelect.appendChild(option);
     }
     precisionSelect.value = 4; 
-    sourceUnitSelect.value = 'm_s2'; // Metro/segundo² por defecto
+    sourceUnitSelect.value = 'm_s2'; 
     convertAceleracion();
 }
 
@@ -773,6 +1035,25 @@ function convertAceleracion() {
         const formattedResult = (targetUnit === sourceUnit) ? value.toString() : result.toLocaleString(undefined, { maximumFractionDigits: precision });
         document.getElementById(`output-aceleracion-${targetUnit}`).textContent = formattedResult;
 
+        
+        const factorOrigen = DB.aceleracion.factors[sourceUnit];
+        const factorDestino = DB.aceleracion.factors[targetUnit];
+        const desarrolloElement = document.getElementById(`desarrollo-aceleracion-${targetUnit}`);
+        
+        if (desarrolloElement) {
+            if (targetUnit === sourceUnit) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-purple-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) ${value} × ${factorOrigen} = ${valueInBase}</div>
+                    <div>2) ${valueInBase} ÷ ${factorDestino} = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
+        
+
         const card = document.getElementById(`card-aceleracion-${targetUnit}`);
         const isSource = targetUnit === sourceUnit;
         card.classList.toggle('bg-purple-50', isSource);
@@ -782,8 +1063,6 @@ function convertAceleracion() {
     }
 }
 // ==============================================================================================================
-
-
 
 function initializeElectricidadConverter() {
     const sourceUnitSelect = document.getElementById('sourceUnit-electricidad');
@@ -804,7 +1083,7 @@ function initializeElectricidadConverter() {
         precisionSelect.appendChild(option);
     }
     precisionSelect.value = 4; 
-    sourceUnitSelect.value = 'V'; // Voltio por defecto
+    sourceUnitSelect.value = 'V'; 
     convertElectricidad();
 }
 
@@ -819,6 +1098,25 @@ function convertElectricidad() {
         const formattedResult = (targetUnit === sourceUnit) ? value.toString() : result.toLocaleString(undefined, { maximumFractionDigits: precision });
         document.getElementById(`output-electricidad-${targetUnit}`).textContent = formattedResult;
 
+        
+        const factorOrigen = DB.electricidad.factors[sourceUnit];
+        const factorDestino = DB.electricidad.factors[targetUnit];
+        const desarrolloElement = document.getElementById(`desarrollo-electricidad-${targetUnit}`);
+        
+        if (desarrolloElement) {
+            if (targetUnit === sourceUnit) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-purple-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) ${value} × ${factorOrigen} = ${valueInBase}</div>
+                    <div>2) ${valueInBase} ÷ ${factorDestino} = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
+        
+
         const card = document.getElementById(`card-electricidad-${targetUnit}`);
         const isSource = targetUnit === sourceUnit;
         card.classList.toggle('bg-purple-50', isSource);
@@ -828,7 +1126,6 @@ function convertElectricidad() {
     }
 }
 // ==============================================================================================================
-
 
 function initializeFrecuenciaConverter() {
     const sourceUnitSelect = document.getElementById('sourceUnit-frecuencia');
@@ -849,7 +1146,7 @@ function initializeFrecuenciaConverter() {
         precisionSelect.appendChild(option);
     }
     precisionSelect.value = 4; 
-    sourceUnitSelect.value = 'Hz'; // Hercio por defecto
+    sourceUnitSelect.value = 'Hz'; 
     convertFrecuencia();
 }
 
@@ -864,6 +1161,25 @@ function convertFrecuencia() {
         const formattedResult = (targetUnit === sourceUnit) ? value.toString() : result.toLocaleString(undefined, { maximumFractionDigits: precision });
         document.getElementById(`output-frecuencia-${targetUnit}`).textContent = formattedResult;
 
+        
+        const factorOrigen = DB.frecuencia.factors[sourceUnit];
+        const factorDestino = DB.frecuencia.factors[targetUnit];
+        const desarrolloElement = document.getElementById(`desarrollo-frecuencia-${targetUnit}`);
+        
+        if (desarrolloElement) {
+            if (targetUnit === sourceUnit) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-purple-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) ${value} × ${factorOrigen} = ${valueInBase}</div>
+                    <div>2) ${valueInBase} ÷ ${factorDestino} = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
+        
+
         const card = document.getElementById(`card-frecuencia-${targetUnit}`);
         const isSource = targetUnit === sourceUnit;
         card.classList.toggle('bg-purple-50', isSource);
@@ -872,7 +1188,6 @@ function convertFrecuencia() {
         card.classList.toggle('border-gray-200', !isSource);
     }
 }
-
 
 // ==============================================================================================================
 
@@ -895,7 +1210,7 @@ function initializeDisenoConverter() {
         precisionSelect.appendChild(option);
     }
     precisionSelect.value = 4; 
-    sourceUnitSelect.value = 'px'; // Píxel por defecto
+    sourceUnitSelect.value = 'px'; 
     convertDiseno();
 }
 
@@ -910,6 +1225,25 @@ function convertDiseno() {
         const formattedResult = (targetUnit === sourceUnit) ? value.toString() : result.toLocaleString(undefined, { maximumFractionDigits: precision });
         document.getElementById(`output-diseno-${targetUnit}`).textContent = formattedResult;
 
+        
+        const factorOrigen = DB.diseno.factors[sourceUnit];
+        const factorDestino = DB.diseno.factors[targetUnit];
+        const desarrolloElement = document.getElementById(`desarrollo-diseno-${targetUnit}`);
+        
+        if (desarrolloElement) {
+            if (targetUnit === sourceUnit) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-purple-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) ${value} × ${factorOrigen} = ${valueInBase}</div>
+                    <div>2) ${valueInBase} ÷ ${factorDestino} = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
+        
+
         const card = document.getElementById(`card-diseno-${targetUnit}`);
         const isSource = targetUnit === sourceUnit;
         card.classList.toggle('bg-purple-50', isSource);
@@ -920,7 +1254,6 @@ function convertDiseno() {
 }
 
 // ==============================================================================================================
-
 
 function initializeIluminacionConverter() {
     const sourceUnitSelect = document.getElementById('sourceUnit-iluminacion');
@@ -941,7 +1274,7 @@ function initializeIluminacionConverter() {
         precisionSelect.appendChild(option);
     }
     precisionSelect.value = 4; 
-    sourceUnitSelect.value = 'lx'; // Lux por defecto
+    sourceUnitSelect.value = 'lx'; 
     convertIluminacion();
 }
 
@@ -956,6 +1289,25 @@ function convertIluminacion() {
         const formattedResult = (targetUnit === sourceUnit) ? value.toString() : result.toLocaleString(undefined, { maximumFractionDigits: precision });
         document.getElementById(`output-iluminacion-${targetUnit}`).textContent = formattedResult;
 
+        
+        const factorOrigen = DB.iluminacion.factors[sourceUnit];
+        const factorDestino = DB.iluminacion.factors[targetUnit];
+        const desarrolloElement = document.getElementById(`desarrollo-iluminacion-${targetUnit}`);
+        
+        if (desarrolloElement) {
+            if (targetUnit === sourceUnit) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-purple-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) ${value} × ${factorOrigen} = ${valueInBase}</div>
+                    <div>2) ${valueInBase} ÷ ${factorDestino} = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
+        
+
         const card = document.getElementById(`card-iluminacion-${targetUnit}`);
         const isSource = targetUnit === sourceUnit;
         card.classList.toggle('bg-purple-50', isSource);
@@ -964,7 +1316,6 @@ function convertIluminacion() {
         card.classList.toggle('border-gray-200', !isSource);
     }
 }
-
 
 // ==============================================================================================================
 
@@ -987,7 +1338,7 @@ function initializeRadiacionConverter() {
         precisionSelect.appendChild(option);
     }
     precisionSelect.value = 4; 
-    sourceUnitSelect.value = 'Sv'; // Sievert por defecto
+    sourceUnitSelect.value = 'Sv'; 
     convertRadiacion();
 }
 
@@ -1001,6 +1352,25 @@ function convertRadiacion() {
         const result = valueInBase / DB.radiacion.factors[targetUnit];
         const formattedResult = (targetUnit === sourceUnit) ? value.toString() : result.toLocaleString(undefined, { maximumFractionDigits: precision });
         document.getElementById(`output-radiacion-${targetUnit}`).textContent = formattedResult;
+
+        
+        const factorOrigen = DB.radiacion.factors[sourceUnit];
+        const factorDestino = DB.radiacion.factors[targetUnit];
+        const desarrolloElement = document.getElementById(`desarrollo-radiacion-${targetUnit}`);
+        
+        if (desarrolloElement) {
+            if (targetUnit === sourceUnit) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-purple-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) ${value} × ${factorOrigen} = ${valueInBase}</div>
+                    <div>2) ${valueInBase} ÷ ${factorDestino} = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
+        
 
         const card = document.getElementById(`card-radiacion-${targetUnit}`);
         const isSource = targetUnit === sourceUnit;
@@ -1032,7 +1402,7 @@ function initializeCaudalConverter() {
         precisionSelect.appendChild(option);
     }
     precisionSelect.value = 4; 
-    sourceUnitSelect.value = 'L_s'; // Litro/segundo por defecto
+    sourceUnitSelect.value = 'L_s'; 
     convertCaudal();
 }
 
@@ -1046,6 +1416,25 @@ function convertCaudal() {
         const result = valueInBase / DB.caudal.factors[targetUnit];
         const formattedResult = (targetUnit === sourceUnit) ? value.toString() : result.toLocaleString(undefined, { maximumFractionDigits: precision });
         document.getElementById(`output-caudal-${targetUnit}`).textContent = formattedResult;
+
+        
+        const factorOrigen = DB.caudal.factors[sourceUnit];
+        const factorDestino = DB.caudal.factors[targetUnit];
+        const desarrolloElement = document.getElementById(`desarrollo-caudal-${targetUnit}`);
+        
+        if (desarrolloElement) {
+            if (targetUnit === sourceUnit) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-purple-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) ${value} × ${factorOrigen} = ${valueInBase}</div>
+                    <div>2) ${valueInBase} ÷ ${factorDestino} = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
+        
 
         const card = document.getElementById(`card-caudal-${targetUnit}`);
         const isSource = targetUnit === sourceUnit;
@@ -1076,7 +1465,7 @@ function initializeDensidadConverter() {
         precisionSelect.appendChild(option);
     }
     precisionSelect.value = 4; 
-    sourceUnitSelect.value = 'kg_m3'; // Kilogramo/metro cúbico por defecto
+    sourceUnitSelect.value = 'kg_m3'; 
     convertDensidad();
 }
 
@@ -1091,6 +1480,25 @@ function convertDensidad() {
         const formattedResult = (targetUnit === sourceUnit) ? value.toString() : result.toLocaleString(undefined, { maximumFractionDigits: precision });
         document.getElementById(`output-densidad-${targetUnit}`).textContent = formattedResult;
 
+        
+        const factorOrigen = DB.densidad.factors[sourceUnit];
+        const factorDestino = DB.densidad.factors[targetUnit];
+        const desarrolloElement = document.getElementById(`desarrollo-densidad-${targetUnit}`);
+        
+        if (desarrolloElement) {
+            if (targetUnit === sourceUnit) {
+                desarrolloElement.classList.add('hidden');
+            } else {
+                desarrolloElement.classList.remove('hidden');
+                desarrolloElement.innerHTML = `
+                    <span class="text-purple-400 font-semibold mb-1 block">Procedimiento:</span>
+                    <div>1) ${value} × ${factorOrigen} = ${valueInBase}</div>
+                    <div>2) ${valueInBase} ÷ ${factorDestino} = <span class="font-bold text-gray-700">${formattedResult}</span></div>
+                `;
+            }
+        }
+        
+
         const card = document.getElementById(`card-densidad-${targetUnit}`);
         const isSource = targetUnit === sourceUnit;
         card.classList.toggle('bg-purple-50', isSource);
@@ -1099,8 +1507,14 @@ function convertDensidad() {
         card.classList.toggle('border-gray-200', !isSource);
     }
 }
-
 // ==============================================================================================================
+
+
+
+
+
+
+
 
 
 
