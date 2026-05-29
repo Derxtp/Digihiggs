@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Voltaje</title>
+    <link rel="shortcut icon" href="/images/digihiggs.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/stylepages.css">
+</head>
+<body>
+    <div class="container">
+
+        <nav>
+            <button onclick="window.location.href='dashboard.html'" class="btn-nav">Regresar</button>
+            <button id="btnConfig" class="btn-nav">Parámetros</button>
+            <button id="btnFormulas" class="btn-nav">Fórmulas</button>
+        </nav>
+
+        <h1>Conversor de Magnitudes de Voltaje</h1>
+
+        <div class="precision-control">
+            <label for="decimales">Precisión (0-8 decimales): </label>
+            <input type="number" id="decimales" min="0" max="8" value="2">
+        </div>
+
+        <div class="converter-grid">
+            <div class="input-group"><label>Nanovoltio (nV)</label><input type="number" id="nanovoltio" placeholder="0"></div>
+            <div class="input-group"><label>Microvoltio (µV)</label><input type="number" id="microvoltio" placeholder="0"></div>
+            <div class="input-group"><label>Milivoltio (mV)</label><input type="number" id="milivoltio" placeholder="0"></div>
+            <div class="input-group"><label>Voltio o Volt (V)</label><input type="number" id="voltio" placeholder="0"></div>
+            <div class="input-group"><label>Kilovoltio (kV)</label><input type="number" id="kilovoltio" placeholder="0"></div>
+            <div class="input-group"><label>Megavoltio (MV)</label><input type="number" id="megavoltio" placeholder="0"></div>
+            <div class="input-group"><label>Gigavoltio (GV)</label><input type="number" id="gigavoltio" placeholder="0"></div>
+            <div class="input-group"><label>Teravoltio (TV)</label><input type="number" id="teravoltio" placeholder="0"></div>
+        </div>
+
+        <section class="procedimiento">
+            <h3>Sustitución y Desarrollo:</h3>
+            <div id="pasos" class="pasos-container">
+                Introduzca un valor para ver el procedimiento matemático detallado.
+            </div>
+        </section>
+    </div>
+
+    <div id="modalJSON" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Configuración de Constantes (JSON)</h2>
+            <textarea id="jsonEditor" rows="12" style="width:100%; font-family: monospace;"></textarea>
+            <button id="saveJSON" class="btn-save">Guardar Cambios</button>
+        </div>
+    </div>
+
+    <div id="modalFormulas" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Prefijos del Sistema Internacional (Base: Voltio)</h2>
+            <div id="listaFormulas"></div>
+        </div>
+    </div>
+
+    <script src="/js/convertervoltage.js"></script>
+</body>
+</html>

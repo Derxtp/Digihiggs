@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Velocidad</title>
+    <link rel="shortcut icon" href="/images/digihiggs.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/stylepages.css">
+</head>
+<body>
+    <div class="container">
+
+        <nav>
+            <button onclick="window.location.href='dashboard.html'" class="btn-nav">Regresar</button>
+            <button id="btnConfig" class="btn-nav">Parámetros</button>
+            <button id="btnFormulas" class="btn-nav">Fórmulas</button>
+        </nav>
+
+        <h1>Conversor de Velocidad</h1>
+
+        <div class="precision-control">
+            <label for="decimales">Precisión (0-8 decimales): </label>
+            <input type="number" id="decimales" min="0" max="8" value="2">
+        </div>
+
+        <div class="converter-grid">
+            <div class="input-group">
+                <label>Centímetro por segundo (cm/s)</label>
+                <input type="number" id="centimetroSegundo" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Metro por segundo (m/s)</label>
+                <input type="number" id="metroSegundo" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Kilómetro por hora (km/h)</label>
+                <input type="number" id="kilometroHora" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Milla por hora (mph)</label>
+                <input type="number" id="millaHora" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Pie por segundo (ft/s)</label>
+                <input type="number" id="pieSegundo" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Nudo (kt)</label>
+                <input type="number" id="nudo" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Mach (Ma)</label>
+                <input type="number" id="mach" placeholder="0">
+            </div>
+        </div>
+
+        <section class="procedimiento">
+            <h3>Sustitución y Desarrollo:</h3>
+            <div id="pasos" class="pasos-container">
+                Introduzca un valor para ver el procedimiento detallado.
+            </div>
+        </section>
+    </div>
+
+    <div id="modalJSON" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Configuración de Constantes (JSON)</h2>
+            <textarea id="jsonEditor" rows="12" style="width:100%; font-family: monospace;"></textarea>
+            <button id="saveJSON" class="btn-save">Guardar Cambios</button>
+        </div>
+    </div>
+
+    <div id="modalFormulas" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Fórmulas de Conversión (Base: m/s)</h2>
+            <div id="listaFormulas"></div>
+        </div>
+    </div>
+
+    <script src="/js/converterspeed.js"></script>
+</body>
+</html>

@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+     maximum-scale=1,minimun-scale=1">
+    <title>DigiHiggs Dashboard</title>
+
+    <!-- Librería jQuery-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <script>
+
+    </script>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">  
+
+    <!-- Line Awesome - Icons8 - Download -->
+    <link rel= "stylesheet" href= "/icons/css/line-awesome.min.css" >
+
+    <!-- Css -->
+     <link rel="stylesheet" href="/css/styledashboard.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/images/digihiggs.ico" type="image/x-icon">
+
+</head>
+<body>
+    <!-- Sidebar --------------------------------------------------- -->
+    <input type="checkbox" name="" id="sidebar-toggle">
+
+    <div class="sidebar">
+        <!-- -->
+        <div class="sidebar-brand">
+            <div class="brand-flex">
+                <img src="/images/LogoDigiHiggs300pxV3.png" width="50px" alt="">
+
+                <div class="brand-icons">
+                    <span class="las la-bell">
+
+                    </span>
+                    <span class="las la-user-circle">
+
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!-- -->
+        <div class="sidebar-main">
+            <!-- -->
+            <div class="sidebar-user">
+                <img src="/images/Peter-Higgs.png" alt="">
+                <div>
+                    <h3>Peter Higgs</h3>
+                    <span>digihiggs@cbtis-246.edu.mx</span>
+                </div>
+            </div>
+            <!-- -->
+            <div class="sidebar-menu">
+                <div class="menu-head">
+                    <span> Magnitudes fundamentales </span>
+                    <ul>
+                        <!-- Opción Longitud -->
+                        <li>
+                            <a href="">
+                                <span class="las la-chart-pie">
+                                    Longitud
+                                </span>
+                            </a>
+                        </li>
+                        <!-- Opción Temperatura -->
+                        <li>
+                            <a href="">
+                                <span class="las la-chart-pie">
+                                    Temperatura
+                                </span>
+                            </a>
+                        </li>
+                        <!-- Opción Masa -->
+                        <li>
+                            <a href="">
+                                <span class="las la-chart-pie">
+                                    Masa
+                                </span>
+                            </a>
+                        </li>            
+                        <!-- Opción Tiempo -->
+                        <li>
+                            <a href="">
+                                <span class="las la-chart-pie">
+                                    Tiempo
+                                </span>
+                            </a>
+                        </li>                                         
+                    </ul>
+
+                    <span>Unidades derivadas</span>
+                    <ul>
+
+                        <!-- Opción de superficie -->
+                        <li>
+                            <a href="">
+                                <span class="las la-check-circle">
+                                    Superficie
+                                </span>
+                            </a>
+                        </li>
+
+                        <!-- Opción de volumen -->
+                        <li>
+                            <a href="">
+                                <span class="las la-check-circle">
+                                    Volumen
+                                </span>
+                            </a>
+                        </li>
+
+                        <!-- Opción de aceleración -->
+                        <li>
+                            <a href="">
+                                <span class="las la-check-circle">
+                                    Aceleración
+                                </span>
+                            </a>
+                        </li>
+
+                        <!-- Opción de velocidad -->
+                        <li>
+                            <a href="">
+                                <span class="las la-check-circle">
+                                    Velocidad
+                                </span>
+                            </a>
+                        </li>
+
+                        <!-- Opción de densidad -->
+                        <li>
+                            <a href="">
+                                <span class="las la-check-circle">
+                                    Densidad
+                                </span>
+                            </a>
+                        </li>
+
+                    </ul> 
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- *********************************************************** -->
+    <!-- Contenido del Dashboard -->
+    <div class="main-content">
+        <header>
+                <!-- Menu Hamburger -->
+                <div class="menu-toggle">
+                    <label for="sidebar-toggle">
+                        <span class="las la-bars"></span>
+                    </label>
+                </div>
+
+                <div class="header-icons">
+                    <span class="las la-search"> </span>
+                    <span class="las la-bookmark"> </span>
+                    <a href="javascript:(window.location.href =window.location.href)">
+                        <span class="las la-backward"> </span>
+                    </a>
+                    <a href="../index.html">
+                        <span class="las la-warehouse"> </span>
+                    </a>
+                </div>
+        </header>
+
+
+
+        <!-- Pantalla principal del Dashboard **************************  -->
+        <main id="contenido-principal">
+            <div class="page-header">
+                <div>
+                    <h1>Selecciona una categoría</h1>
+                    <small>Tu motor de metrología digital</small>
+                </div>
+
+                <div class="header-actions">
+                    <button onclick="window.location.href='/documents_html/historico.html';">
+                        <span class="las la-ghost"></span>
+                            Histórico
+                    </button>
+                    <button onclick="window.location.href='/documents_html/minimanual.html';">
+                        <span class="las la-tools"></span>
+                            MiniManual
+                    </button>                    
+                </div>
+            </div>
+
+            <div class="contenedor">
+            </div>
+
+            <div id="dynamic-area"></div>
+
+
+            <!-- Cards ************************************************* -->
+             <div class="cards">
+
+                <!-- ++++++++++++++++++++++++++++++++++++++++ Dimensión +++++++++++++++++++++++++++ -->
+
+                <!-- ********************************** Card Longitud -->
+                    <a href="/documents_html/longitud.html">
+                        <div class="card-single">
+                            <div class="card-flex">
+                                <div class="card-info">
+                                    <div class="card-head">
+                                        <span>Longitud</span>
+                                        <small>Magnitud física fundamental</small>
+                                    </div>
+
+                                    <h2>13 unidades</h2>
+                                    <small>Magnitud escalar</small>
+                                </div>
+                                
+                                <div class="card-chart success">
+                                    <img src="/images/PhisicsIcons/longitud.png" width="100px" alt="">
+                                    <!-- <span class="las la-check"></span> -->
+                                </div>
+                            </div>
+                        </div>                
+                    </a>
+
+                <!-- ***************************************** Card Área -->
+                    <a href="/documents_html/area.html">
+                        <div class="card-single">
+                            <div class="card-flex">
+                                <div class="card-info">
+                                    <div class="card-head">
+                                        <span>Superficie</span>
+                                        <small>Magnitud física derivada</small>
+                                    </div>
+
+                                    <h2>10 Unidades</h2>
+                                    <small>Magnitud escalar</small>
+                                </div>
+                                <div class="card-chart success">
+                                    <img src="/images/PhisicsIcons/area.png" width="90px" alt="">                                    
+                                    <!-- <span class="las la-check"></span> -->
+                                </div>
+                            </div>
+                        </div>
+                    </a>  
+
+                <!-- ************************************** Card volumen -->
+                    <a href="/documents_html/volumen.html">
+                        <div class="card-single">
+                            <div class="card-flex">
+                                <div class="card-info">
+                                    <div class="card-head">
+                                        <span>Volumen</span>
+                                        <small>Magnitud física derivada</small>
+                                    </div>
+
+                                    <h2>28 Unidades</h2>
+                                    <small>Magnitud escalar</small>
+                                </div>
+                                <div class="card-chart success">
+                                    <img src="/images/PhisicsIcons/volumen.png" width="100px" alt="">
+                                    <!-- <span class="las la-check"></span> -->
+                                </div>
+                            </div>
+                        </div> 
+                    </a>                 
+
+                <!-- ++++++++++++++++++++++++++++++++++++++++ Energía +++++++++++++++++++++++++++ -->
+
+                <!-- ******************************** Card Temperatura -->
+                <a href="/documents_html/temperatura.html">
+                     <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <span>Temperatura</span>
+                                    <small>Magnitud física fundamental</small>
+                                </div>
+
+                                <h2>4 Unidades</h2>
+                                <small>Magnitud escalar</small>
+                            </div>
+                            <div class="card-chart success">
+                                <img src="/images/PhisicsIcons/temperatura.png" width="100px" alt="">
+                                <!-- <span class="las la-check"></span> -->
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- *************************************** Card Energía -->
+                    <a href="/documents_html/energia.html">
+                        <div class="card-single">
+                            <div class="card-flex">
+                                <div class="card-info">
+                                    <div class="card-head">
+                                        <span>Energía</span>
+                                        <small>Magnitud física derivada</small>
+                                    </div>
+
+                                    <h2>14 Unidades</h2>
+                                    <small>Magnitud vectorial</small>
+                                </div>
+                                <div class="card-chart success">
+                                    <img src="/images/PhisicsIcons/energia.png" width="100px" alt="">
+                                    <!-- <span class="las la-check"></span> -->
+                                </div>
+                            </div>
+                        </div> 
+                    </a>                
+
+                <!-- *************************************** Card Potencia -->
+                    <a href="/documents_html/potencia.html">
+                        <div class="card-single">
+                            <div class="card-flex">
+                                <div class="card-info">
+                                    <div class="card-head">
+                                        <span>Potencia</span>
+                                        <small>Magnitud física derivada</small>
+                                    </div>
+
+                                    <h2>17 Unidades</h2>
+                                    <small>Magnitud escalar</small>
+                                </div>
+                                <div class="card-chart success">
+                                    <img src="/images/PhisicsIcons/potencia.png" width="100px" alt="">                                    
+                                    <!-- <span class="las la-check"></span> -->
+                                </div>
+                            </div>
+                        </div> 
+                    </a> 
+
+                <!-- *********************************** Card combustible -->
+                    <a href="/documents_html/combustible.html">
+                        <div class="card-single">
+                            <div class="card-flex">
+                                <div class="card-info">
+                                    <div class="card-head">
+                                        <span>Combustible</span>
+                                        <small>Magnitud física derivada</small>
+                                    </div>
+
+                                    <h2>10 Unidades</h2>
+                                    <small>Magnitud vectorial</small>
+                                </div>
+                                <div class="card-chart success">
+                                    <img src="/images/PhisicsIcons/combustible.png" width="100px" alt="">
+                                    <!-- <span class="las la-check"></span> -->
+                                </div>
+                            </div>
+                        </div> 
+                    </a>    
+
+                <!-- ++++++++++++++++++++++++++++++++++++++++ Movimiento +++++++++++++++++++++++++++ -->
+
+                <!-- ************************************** Card velocidad -->
+                    <a href="/documents_html/velocidad.html">
+                        <div class="card-single">
+                            <div class="card-flex">
+                                <div class="card-info">
+                                    <div class="card-head">
+                                        <span>Velocidad</span>
+                                        <small>Magnitud física derivada</small>
+                                    </div>
+
+                                    <h2>7 Unidades</h2>
+                                    <small>Magnitud vectorial</small>
+                                </div>
+                                <div class="card-chart success">
+                                    <img src="/images/PhisicsIcons/velocidad.png" width="100px" alt="">
+                                    <!-- <span class="las la-check"></span> -->
+                                </div>
+                            </div>
+                        </div>
+                    </a>     
+                    
+                <!-- ++++++++++++++++++++++++++++++++++++++++ Tiempo +++++++++++++++++++++++++++ -->
+
+                <!-- **************************************** Card Tiempo -->
+                    <a href="/documents_html/tiempo.html">
+                        <div class="card-single">
+                            <div class="card-flex">
+                                <div class="card-info">
+                                    <div class="card-head">
+                                        <span>Tiempo</span>
+                                        <small>Magnitud física fundamental</small>
+                                    </div>
+
+                                    <h2>14 Unidades</h2>
+                                    <small>Magnitud escalar</small>
+                                </div>
+                                <div class="card-chart success">
+                                    <img src="/images/PhisicsIcons/tiempo.png" width="100px" alt="">                                    
+                                    <!-- <span class="las la-check"></span> -->
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+
+             <!-- ****************************************** Card Masa -->
+                <a href="/documents_html/masa.html">
+                    <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <span>Masa</span>
+                                    <small>Magnitud física fundamental</small>
+                                </div>
+
+                                <img src="/images/PhisicsIcons/masa.png" width="100px" alt="">
+                                <h2>9 Unidades</h2>
+                                <small>Magnitud escalar</small>
+                            </div>
+                            <div class="card-chart success">
+                                <span class="las la-check"></span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+
+                
+            <!-- ***************************************** Card Ángulo -->
+                <a href="/documents_html/angulo.html">
+                    <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <span>Ángulo plano</span>
+                                    <small>Magnitud física derivada</small>
+                                </div>
+
+                                <img src="/images/PhisicsIcons/angulo.png" width="100px" alt="">
+                                <h2>10 Unidades</h2>
+                                <small>Magnitud escalar</small>
+                            </div>
+                            <div class="card-chart success">
+                                <span class="las la-check"></span>
+                            </div>
+                        </div>
+                    </div> 
+                </a>
+
+             <!-- *************************************** Card Presión -->
+                <a href="/documents_html/presion.html">
+                    <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <span>Presión</span>
+                                    <small>Magnitud física derivada</small>
+                                </div>
+
+                                <img src="/images/PhisicsIcons/presion.png" width="100px" alt="">
+                                <h2>10 Unidades</h2>
+                                <small>Magnitud vectorial</small>
+                            </div>
+                            <div class="card-chart success">
+                                <span class="las la-check"></span>
+                            </div>
+                        </div>
+                    </div> 
+                </a>
+
+             <!-- *************************************** Card Caudal -->
+                <a href="/documents_html/caudal.html">
+                    <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <span>Caudal vol.</span>
+                                    <small>Magnitud física derivada</small>
+                                </div>
+
+                                <img src="/images/PhisicsIcons/presion.png" width="100px" alt="">
+                                <h2>14 Unidades</h2>
+                                <small>Magnitud escalarl</small>
+                            </div>
+                            <div class="card-chart success">
+                                <span class="las la-check"></span>
+                            </div>
+                        </div>
+                    </div> 
+                </a>                
+
+             <!-- *************************************** Card Densidad Energía -->
+                <a href="/documents_html/denenergetica.html">
+                    <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <span>Densidad E.</span>
+                                    <small>Magnitud física derivada</small>
+                                </div>
+
+                                <img src="/images/PhisicsIcons/energia.png" width="100px" alt="">
+                                <h2>11 Unidades</h2>
+                                <small>Magnitud escalar</small>
+                            </div>
+                            <div class="card-chart success">
+                                <span class="las la-check"></span>
+                            </div>
+                        </div>
+                    </div> 
+                </a>                  
+
+ 
+
+             <!-- ************************************** Card densidad -->
+                <a href="/documents_html/densidad.html">
+                    <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <span>Densidad</span>
+                                    <small>Magnitud física derivada</small>
+                                </div>
+
+                                <img src="/images/PhisicsIcons/densidad.png" width="100px" alt="">
+                                <h2>10 Unidades</h2>
+                                <small>Magnitud escalar</small>
+                            </div>
+                            <div class="card-chart success">
+                                <span class="las la-check"></span>
+                            </div>
+                        </div>
+                    </div> 
+                </a>
+
+             <!-- **************************************** Card fuerza -->
+                <a href="/documents_html/fuerza.html">
+                    <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <span>Fuerza</span>
+                                    <small>Magnitud física derivada</small>
+                                </div>
+
+                                <img src="/images/PhisicsIcons/fuerza.png" width="100px" alt="">
+                                <h2>7 Unidades</h2>
+                                <small>Magnitud vectorial</small>
+                            </div>
+                            <div class="card-chart success">
+                                <span class="las la-check"></span>
+                            </div>
+                        </div>
+                    </div> 
+                </a>    
+                
+            
+
+            <!-- ********************************* Card almacenamiento -->
+                <a href="/documents_html/almacenamiento.html">
+                    <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <span>Almacenamiento</span>
+                                    <small>Magnitud física derivada</small>
+                                </div>
+
+                                <img src="/images/PhisicsIcons/almacenamiento.png" width="100px" alt="">
+                                <h2>25 Unidades</h2>
+                                <small>Magnitud vectorial</small>
+                            </div>
+                            <div class="card-chart success">
+                                <span class="las la-check"></span>
+                            </div>
+                        </div>
+                    </div> 
+                </a>
+                
+            <!-- ************************************* Card frecuencia -->
+                <a href="/documents_html/frecuencia.html">
+                    <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <span>Frecuencia</span>
+                                    <small>Magnitud física derivada</small>
+                                </div>
+
+                                <img src="/images/PhisicsIcons/frecuencia.png" width="100px" alt="">
+                                <h2>13 Unidades</h2>
+                                <small>Magnitud escalar</small>
+                            </div>
+                            <div class="card-chart success">
+                                <span class="las la-check"></span>
+                            </div>
+                        </div>
+                    </div> 
+                </a>
+            
+            <!-- ************************************* Card Vel Angular -->
+                <a href="/documents_html/angular.html">
+                    <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <span>V. Angular</span>
+                                    <small>Magnitud física derivada</small>
+                                </div>
+
+                                <img src="/images/PhisicsIcons/frecuencia.png" width="100px" alt="">
+                                <h2>10 Unidades</h2>
+                                <small>Magnitud vectorial</small>
+                            </div>
+                            <div class="card-chart success">
+                                <span class="las la-check"></span>
+                            </div>
+                        </div>
+                    </div> 
+                </a>            
+
+             <!-- **************************************** Card Torque -->
+                <a href="/documents_html/torque.html">
+                    <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <span>Torque</span>
+                                    <small>Magnitud física derivada</small>
+                                </div>
+
+                                <img src="/images/PhisicsIcons/torque.png" width="100px" alt="">
+                                <h2>10 Unidades</h2>
+                                <small>Magnitud vectorial-escalar</small>
+                            </div>
+                            <div class="card-chart success">
+                                <span class="las la-check"></span>
+                            </div>
+                        </div>
+                    </div> 
+                </a>    
+                
+            <!-- **************************************** Card Voltaje -->
+                <a href="/documents_html/voltaje.html">
+                    <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <span>Voltaje</span>
+                                    <small>Magnitud física derivada</small>
+                                </div>
+
+                                <img src="/images/PhisicsIcons/tension.png" width="100px" alt="">
+                                <h2>8 Unidades</h2>
+                                <small>Magnitud escalar</small>
+                            </div>
+                            <div class="card-chart success">
+                                <span class="las la-check"></span>
+                            </div>
+                        </div>
+                    </div> 
+                </a>  
+
+            <!-- **************************************** Card Campo -->
+                <a href="/documents_html/campoelectrico.html">
+                    <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <span>Campo Eléc</span>
+                                    <small>Magnitud física derivada</small>
+                                </div>
+
+                                <img src="/images/PhisicsIcons/campoe.png" width="100px" alt="">
+                                <h2>9 Unidades</h2>
+                                <small>Magnitud vectorial</small>
+                            </div>
+                            <div class="card-chart success">
+                                <span class="las la-check"></span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+            <!-- *********************************** Card Carga -->
+                <a href="/documents_html/carga.html">
+                    <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <span>Carga Eléc</span>
+                                    <small>Magnitud física derivada</small>
+                                </div>
+
+                                <img src="/images/PhisicsIcons/cargae.png" width="100px" alt="">
+                                <h2>13 Unidades</h2>
+                                <small>Magnitud escalar</small>
+                            </div>
+                            <div class="card-chart success">
+                                <span class="las la-check"></span>
+                            </div>
+                        </div>
+                    </div> 
+                </a>
+
+            <!-- *********************************** Card CampoM -->
+                <a href="/documents_html/campomagnetico.html">
+                    <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <span>Campo magnético</span>
+                                    <small>Magnitud física derivada</small>
+                                </div>
+
+                                <img src="/images/PhisicsIcons/potenciale.png" width="100px" alt="">
+                                <h2>4 Unidades</h2>
+                                <small>Magnitud vectorial</small>
+                            </div>
+                            <div class="card-chart success">
+                                <span class="las la-check"></span>
+                            </div>
+                        </div>
+                    </div> 
+                </a>
+
+            <!-- *********************************** Card FlujoM -->
+                <a href="/documents_html/flujo.html">
+                    <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <span>Flujo magnético</span>
+                                    <small>Magnitud física derivada</small>
+                                </div>
+
+                                <img src="/images/PhisicsIcons/potenciale.png" width="100px" alt="">
+                                <h2>5 Unidades</h2>
+                                <small>Magnitud escalar</small>
+                            </div>
+                            <div class="card-chart success">
+                                <span class="las la-check"></span>
+                            </div>
+                        </div>
+                    </div> 
+                </a>
+
+            <!-- ********************** Card Inducción Magnética -->
+                <a href="/documents_html/flujomagnetico.html">
+                    <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <span>Inducción magnética</span>
+                                    <small>Magnitud física derivada</small>
+                                </div>
+
+                                <img src="/images/PhisicsIcons/flujom.png" width="100px" alt="">
+                                <h2>6 Unidades</h2>
+                                <small>Magnitud vectorial</small>
+                            </div>
+                            <div class="card-chart success">
+                                <span class="las la-check"></span>
+                            </div>
+                        </div>
+                    </div>   
+                </a>
+
+
+             </div>
+            <!-- Tabla de datos interesantes *********************** --> 
+             <div class="ejemplos-grid">
+
+                <!-- Tarjeta de problemas ************************** -->
+                <div class="analytics-card">
+                    <!-- Título -->
+                    <div class="analytics-head">
+                        <h2>Problemas</h2>
+
+                        <span class="las la-ellipsis-h"></span>
+                    </div>
+                    <!-- -->
+                    <div class="analytics-chart">
+                        <div class="chart-circle">
+                            <h1>0%</h1>
+                        </div>
+                        <div class="analytics-note">
+                            <small> Note: Espacio para ir a la 
+                                aplicación en problemas sencillos
+                                y complejos de ciencias-física.
+                            </small>
+                        </div>
+                    </div>
+                    <!-- -->
+                    <div class="analytics-btn">
+                            <button>Ir a la aplicación</button>
+                    </div>
+                </div>
+
+
+<!-- *************************************************************** -->
+                <!-- Tabla Ejemplos de unidades derivadas con nombre especial -->
+                <div class="prefijos">
+                    <h2>Prefijos <small> Prefijos del Sistema Internacional
+                        de unidades
+                        <span class="las la-arrow-right"></span></small></h2>
+
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <tbody>
+
+                                    <!-- Fila 01 *** quetta -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>quetta</div></td>
+                                        <td><div>Q</div></td>
+                                        <td><div>10 <small class="sup">
+                                                30  </small></div></td>
+                                        <td>
+                                            <div>
+                                                <button>Uso</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Fila 02 *** ronna -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>ronna</div></td>
+                                        <td><div>R</div></td>
+                                        <td><div>10 <small class="sup">
+                                                27  </small></div></td>
+                                        <td>
+                                            <div>
+                                            <button>Uso</button> 
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Fila 03 *** yotta -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>yotta</div></td>
+                                        <td><div>Y</div></td>
+                                        <td><div>10 <small class="sup">
+                                                24  </small></div></td>
+                                        <td>
+                                            <div>
+                                                <button>Uso</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Fila 04 *** zetta -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>zetta</div></td>
+                                        <td><div>Z</div></td>
+                                         <td><div>10 <small class="sup">
+                                                21  </small></div></td>
+                                        <td>
+                                            <div>
+                                            <button>Uso</button> 
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Fila 05 *** exa -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>exa</div></td>
+                                        <td><div>E</div></td>
+                                        <td><div>10 <small class="sup">
+                                                18  </small></div></td>
+                                        <td>
+                                            <div>
+                                                <button>Uso</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Fila 06 *** Péta -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>péta</div></td>
+                                        <td><div>P</div></td>
+                                         <td><div>10 <small class="sup">
+                                                15  </small></div></td>
+                                        <td>
+                                            <div>
+                                            <button>Uso</button> 
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Fila 07 *** téta -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>téra</div></td>
+                                        <td><div>T</div></td>
+                                         <td><div>10 <small class="sup">
+                                                12  </small></div></td>
+                                        <td>
+                                            <div>
+                                            <button>Uso</button> 
+                                            </div>
+                                        </td>
+                                    </tr>                                    
+
+                                    <!-- Fila 08 *** giga -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>giga</div></td>
+                                        <td><div>G</div></td>
+                                         <td><div>10 <small class="sup">
+                                                9  </small></div></td>
+                                        <td>
+                                            <div>
+                                            <button>Uso</button> 
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Fila 09 *** mega -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>mega</div></td>
+                                        <td><div>M</div></td>
+                                         <td><div>10 <small class="sup">
+                                                6  </small></div></td>
+                                        <td>
+                                            <div>
+                                            <button>Uso</button> 
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Fila 10 *** kilo -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>kilo</div></td>
+                                        <td><div>k</div></td>
+                                         <td><div>10 <small class="sup">
+                                                3  </small></div></td>
+                                        <td>
+                                            <div>
+                                            <button>Uso</button> 
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Fila 11 *** hecto -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>hecto</div></td>
+                                        <td><div>h</div></td>
+                                         <td><div>10 <small class="sup">
+                                                2  </small></div></td>
+                                        <td>
+                                            <div>
+                                            <button>Uso</button> 
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Fila 12 *** deca -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>déca</div></td>
+                                        <td><div>da</div></td>
+                                         <td><div>10 <small class="sup">
+                                                1  </small></div></td>
+                                        <td>
+                                            <div>
+                                            <button>Uso</button> 
+                                            </div>
+                                        </td>
+                                    </tr>                                    
+
+                                    <!-- Fila 13 *** déci -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator even"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>déci</div></td>
+                                        <td><div>d</div></td>
+                                         <td><div>10 <small class="sup">
+                                                -1  </small></div></td>
+                                        <td>
+                                            <div>
+                                            <button>Uso</button> 
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Fila 14 *** centi -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator even"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>centi</div></td>
+                                        <td><div>c</div></td>
+                                         <td><div>10 <small class="sup">
+                                                -2  </small></div></td>
+                                        <td>
+                                            <div>
+                                            <button>Uso</button> 
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Fila 15 *** mili -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator even"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>mili</div></td>
+                                        <td><div>m</div></td>
+                                         <td><div>10 <small class="sup">
+                                                -3  </small></div></td>
+                                        <td>
+                                            <div>
+                                            <button>Uso</button> 
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Fila 16 *** micro -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator even"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>micro</div></td>
+                                        <td><div>&mu;</div></td>
+                                         <td><div>10 <small class="sup">
+                                                -6  </small></div></td>
+                                        <td>
+                                            <div>
+                                            <button>Uso</button> 
+                                            </div>
+                                        </td>
+                                    </tr>                                    
+
+                                    <!-- Fila 17 *** nano -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator even"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>nano</div></td>
+                                        <td><div>n</div></td>
+                                         <td><div>10 <small class="sup">
+                                                -9  </small></div></td>
+                                        <td>
+                                            <div>
+                                            <button>Uso</button> 
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Fila 18 *** pico -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator even"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>pico</div></td>
+                                        <td><div>p</div></td>
+                                         <td><div>10 <small class="sup">
+                                                -12  </small></div></td>
+                                        <td>
+                                            <div>
+                                            <button>Uso</button> 
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Fila 19 *** femto -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator even"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>femto</div></td>
+                                        <td><div>f</div></td>
+                                         <td><div>10 <small class="sup">
+                                                -15  </small></div></td>
+                                        <td>
+                                            <div>
+                                            <button>Uso</button> 
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Fila 20 *** atto -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator even"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>atto</div></td>
+                                        <td><div>a</div></td>
+                                         <td><div>10 <small class="sup">
+                                                -18  </small></div></td>
+                                        <td>
+                                            <div>
+                                            <button>Uso</button> 
+                                            </div>
+                                        </td>
+                                    </tr>                                    
+
+                                    <!-- Fila 21 *** zepto -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator even"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>zepto</div></td>
+                                        <td><div>z</div></td>
+                                         <td><div>10 <small class="sup">
+                                                -21  </small></div></td>
+                                        <td>
+                                            <div>
+                                            <button>Uso</button> 
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Fila 22 *** yocto -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator even"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>yocto</div></td>
+                                        <td><div>y</div></td>
+                                         <td><div>10 <small class="sup">
+                                                -24  </small></div></td>
+                                        <td>
+                                            <div>
+                                            <button>Uso</button> 
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Fila 23 *** ronto -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator even"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>ronto</div></td>
+                                        <td><div>r</div></td>
+                                         <td><div>10 <small class="sup">
+                                                -27  </small></div></td>
+                                        <td>
+                                            <div>
+                                            <button>Uso</button> 
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Fila 24 *** quecto -->
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <span class="indicator even"></span>
+                                            </div>
+                                        </td>
+                                        <td><div>quecto</div></td>
+                                        <td><div>q</div></td>
+                                         <td><div>10 <small class="sup">
+                                                -30  </small></div></td>
+                                        <td>
+                                            <div>
+                                            <button>Uso</button> 
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>                            
+                        </div>
+                </div>
+             </div>
+
+             <!-- Footer -->
+            <footer class="main-footer container-fluid">
+                <div class="row align-items-center justify-content-between gy-4">
+                    
+                    <div class="col-12 col-md-4 text-center text-md-start">
+                        <p class="text-primary fw-bold fs-4 m-0" style="color: #4f46e5 !important;">CBTis 246</p>
+                        <p class="text-muted small m-0">Proyecto de Programación &copy; Mayo 2026</p>
+                        <p class="text-secondary style-dev-text m-0" style="font-size: 11px; color: #6c757d;">Desarrollado por Digihiggs: Ayumi, Ángel, Dante</p>
+                    </div>
+
+                    <div class="col-12 col-md-5 d-flex flex-wrap justify-content-center gap-3">
+                        <a href="../proyecto_completo.zip" download class="btn footer-btn-download d-inline-flex align-items-center px-4 py-2 rounded-3 text-white">
+                            <span class="las la-download me-2" style="font-size: 1.2rem; color: #fff;"></span>
+                            <span>Descargar Código</span>
+                        </a>
+
+                        <a href="../docs/licencia_gpl.pdf" target="_blank" class="btn footer-btn-license d-inline-flex align-items-center px-4 py-2 rounded-3">
+                            <span class="las la-file-pdf me-2" style="font-size: 1.2rem;"></span>
+                            <span>Licencia GPL (PDF)</span>
+                        </a>
+                    </div>
+
+                    <div class="col-12 col-md-3 d-flex justify-content-center justify-content-md-end gap-3">
+                        <a href="https://github.com/" target="_blank" class="footer-icon-link" title="GitHub">
+                            <span class="las la-cat" style="font-size: 1.8rem;"></span>
+                        </a>
+                        <a href="mailto:digihiggs@cbtis-246.edu.mx" class="footer-icon-link" title="Email">
+                            <span class="las la-envelope" style="font-size: 1.8rem;"></span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="row mt-4 pt-3 border-top border-light text-center">
+                    <div class="col-12">
+                        <span class="footer-version-tag">Versión 3.0.0 Stable</span>
+                    </div>
+                </div>
+            </footer>              
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <label for="sidebar-toggle" class="body-label"></label>
+</body>
+</html>

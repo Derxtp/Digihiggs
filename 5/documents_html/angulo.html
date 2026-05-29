@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Ángulo Plano</title>
+    <link rel="shortcut icon" href="/images/digihiggs.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/stylepages.css">
+</head>
+<body>
+    <div class="container">
+
+        <nav>
+            <button onclick="window.location.href='dashboard.html'" class="btn-nav">Regresar</button>
+            <button id="btnConfig" class="btn-nav">Parámetros</button>
+            <button id="btnFormulas" class="btn-nav">Fórmulas</button>
+        </nav>
+
+        <h1>Conversor de Ángulo Plano</h1>
+
+        <div class="precision-control">
+            <label for="decimales">Precisión (0-8 decimales): </label>
+            <input type="number" id="decimales" min="0" max="8" value="2">
+        </div>
+
+        <div class="converter-grid">
+            <div class="input-group">
+                <label>Radián (rad)</label>
+                <input type="number" id="radian" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Grado Sexagesimal (°)</label>
+                <input type="number" id="gradoSexagesimal" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Minuto de arco (')</label>
+                <input type="number" id="minutoArco" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Segundo de arco (")</label>
+                <input type="number" id="segundoArco" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Revolución (rev)</label>
+                <input type="number" id="revolucion" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Giro</label>
+                <input type="number" id="giro" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Ciclo</label>
+                <input type="number" id="ciclo" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Grado Centesimal (g)</label>
+                <input type="number" id="gradoCentesimal" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Milirradián (mrad)</label>
+                <input type="number" id="milirradian" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Signo</label>
+                <input type="number" id="signo" placeholder="0">
+            </div>
+        </div>
+
+        <section class="procedimiento">
+            <h3>Sustitución y Desarrollo:</h3>
+            <div id="pasos" class="pasos-container">
+                Introduzca un valor para ver el procedimiento detallado.
+            </div>
+        </section>
+    </div>
+
+    <div id="modalJSON" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Configuración de Constantes (JSON)</h2>
+            <textarea id="jsonEditor" rows="12" style="width:100%; font-family: monospace;"></textarea>
+            <button id="saveJSON" class="btn-save">Guardar Cambios</button>
+        </div>
+    </div>
+
+    <div id="modalFormulas" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Fórmulas de Conversión (Base: Radián)</h2>
+            <div id="listaFormulas"></div>
+        </div>
+    </div>
+
+    <script src="/js/converterangle.js"></script>
+</body>
+</html>

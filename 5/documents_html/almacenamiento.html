@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Datos Completo</title>
+    <link rel="shortcut icon" href="/images/digihiggs.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/stylepages.css">
+</head>
+<body>
+    <div class="container">
+
+        <nav>
+            <button onclick="window.location.href='dashboard.html'" class="btn-nav">Regresar</button>
+            <button id="btnConfig" class="btn-nav">Parámetros</button>
+            <button id="btnFormulas" class="btn-nav">Fórmulas</button>
+        </nav>
+
+        <h1>Conversor de Almacenamiento y Datos</h1>
+
+        <div class="precision-control">
+            <label for="decimales">Precisión (0-8 decimales): </label>
+            <input type="number" id="decimales" min="0" max="8" value="2">
+        </div>
+
+        <div class="converter-grid">
+            <div class="input-group"><label>Bit (b)</label><input type="number" id="bit" placeholder="0"></div>
+            <div class="input-group"><label>Nibble</label><input type="number" id="nibble" placeholder="0"></div>
+            <div class="input-group"><label>Byte (B)</label><input type="number" id="byte" placeholder="0"></div>
+
+            <div class="input-group"><label>Kilobit (kb)</label><input type="number" id="kilobit" placeholder="0"></div>
+            <div class="input-group"><label>Megabit (Mb)</label><input type="number" id="megabit" placeholder="0"></div>
+            <div class="input-group"><label>Gigabit (Gb)</label><input type="number" id="gigabit" placeholder="0"></div>
+            <div class="input-group"><label>Terabit (Tb)</label><input type="number" id="terabit" placeholder="0"></div>
+            <div class="input-group"><label>Petabit (Pb)</label><input type="number" id="petabit" placeholder="0"></div>
+            <div class="input-group"><label>Exabit (Eb)</label><input type="number" id="exabit" placeholder="0"></div>
+
+            <div class="input-group"><label>Kibibit (Kib)</label><input type="number" id="kibibit" placeholder="0"></div>
+            <div class="input-group"><label>Mebibit (Mib)</label><input type="number" id="mebibit" placeholder="0"></div>
+            <div class="input-group"><label>Gigibit (Gib)</label><input type="number" id="gigibit" placeholder="0"></div>
+            <div class="input-group"><label>Tebibit (Tib)</label><input type="number" id="tebibit" placeholder="0"></div>
+            <div class="input-group"><label>Pebibit (Pib)</label><input type="number" id="pebibit" placeholder="0"></div>
+
+            <div class="input-group"><label>Kilobyte (KB)</label><input type="number" id="kilobyte" placeholder="0"></div>
+            <div class="input-group"><label>Megabyte (MB)</label><input type="number" id="megabyte" placeholder="0"></div>
+            <div class="input-group"><label>Gigabyte (GB)</label><input type="number" id="gigabyte" placeholder="0"></div>
+            <div class="input-group"><label>Terabyte (TB)</label><input type="number" id="terabyte" placeholder="0"></div>
+            <div class="input-group"><label>Petabyte (PB)</label><input type="number" id="petabyte" placeholder="0"></div>
+            <div class="input-group"><label>Exabyte (EB)</label><input type="number" id="exabyte" placeholder="0"></div>
+
+            <div class="input-group"><label>Kibibyte (KiB)</label><input type="number" id="kibibyte" placeholder="0"></div>
+            <div class="input-group"><label>Mebibyte (MiB)</label><input type="number" id="mebibyte" placeholder="0"></div>
+            <div class="input-group"><label>Gibibyte (GiB)</label><input type="number" id="gibibyte" placeholder="0"></div>
+            <div class="input-group"><label>Tebibyte (TiB)</label><input type="number" id="tebibyte" placeholder="0"></div>
+            <div class="input-group"><label>Pebibyte (PiB)</label><input type="number" id="pebibyte" placeholder="0"></div>
+        </div>
+
+        <section class="procedimiento">
+            <h3>Sustitución y Desarrollo:</h3>
+            <div id="pasos" class="pasos-container">
+                Introduzca un valor para ver el procedimiento detallado.
+            </div>
+        </section>
+    </div>
+
+    <div id="modalJSON" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Configuración de Constantes (JSON)</h2>
+            <textarea id="jsonEditor" rows="16" style="width:100%; font-family: monospace;"></textarea>
+            <button id="saveJSON" class="btn-save">Guardar Cambios</button>
+        </div>
+    </div>
+
+    <div id="modalFormulas" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Fórmulas de Conversión (Base: bit)</h2>
+            <div id="listaFormulas"></div>
+        </div>
+    </div>
+
+    <script src="/js/converterdata.js"></script>
+</body>
+</html>

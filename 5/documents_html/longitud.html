@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Longitud</title>
+    <link rel="shortcut icon" href="/images/digihiggs.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/stylepages.css">
+</head>
+<body>
+    <div class="container">
+
+        <nav>
+            <button onclick="window.location.href='dashboard.html'" class="btn-nav">Regresar</button>
+            <button id="btnConfig" class="btn-nav">Parámetros</button>
+            <button id="btnFormulas" class="btn-nav">Fórmulas</button>
+        </nav>
+
+        <h1>Conversor de Longitud</h1>
+
+        <div class="precision-control">
+            <label for="decimales">Precisión (0-8 decimales): </label>
+            <input type="number" id="decimales" min="0" max="8" value="2">
+        </div>
+
+        <div class="converter-grid">
+            <div class="input-group">
+                <label>Kilómetro (km)</label>
+                <input type="number" id="kilometro" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Metro (m)</label>
+                <input type="number" id="metro" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Centímetro (cm)</label>
+                <input type="number" id="centimetro" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Milímetro (mm)</label>
+                <input type="number" id="milimetro" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Micrómetro (µm)</label>
+                <input type="number" id="micrometro" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Nanómetro (nm)</label>
+                <input type="number" id="nanometro" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Ángstrom (Å)</label>
+                <input type="number" id="angstrom" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Unidad X (uX)</label>
+                <input type="number" id="unidadX" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Milla (mi)</label>
+                <input type="number" id="milla" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Yarda (yd)</label>
+                <input type="number" id="yarda" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Pie (ft)</label>
+                <input type="number" id="pie" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Pulgada (in)</label>
+                <input type="number" id="pulgada" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Milla Náutica (NM)</label>
+                <input type="number" id="millaNautica" placeholder="0">
+            </div>
+        </div>
+
+        <section class="procedimiento">
+            <h3>Sustitución y Desarrollo:</h3>
+            <div id="pasos" class="pasos-container">
+                Introduzca un valor para ver el procedimiento detallado.
+            </div>
+        </section>
+    </div>
+
+    <div id="modalJSON" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Configuración de Constantes (JSON)</h2>
+            <textarea id="jsonEditor" rows="12" style="width:100%"></textarea>
+            <button id="saveJSON" class="btn-save">Guardar Cambios</button>
+        </div>
+    </div>
+
+    <div id="modalFormulas" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Fórmulas de Conversión (Base: Metro)</h2>
+            <div id="listaFormulas"></div>
+        </div>
+    </div>
+
+    <script src="/js/converterlength.js"></script>
+</body>
+</html>

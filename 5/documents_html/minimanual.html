@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Uso - Convertidor Digital</title>
+    <link rel="shortcut icon" href="/images/digihiggs.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/stylepages.css">
+    <style>
+        /* Estilos complementarios para el diseño instructivo y creativo */
+        .category-title {
+            background-color: #3c606e;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 1.25em;
+            margin-top: 20px;
+            margin-bottom: 25px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .info-card {
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            position: relative;
+        }
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 15px;
+            background: #3c606e;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .info-card h3 {
+            margin-top: 5px;
+            color: #3c606e;
+            font-size: 1.15em;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+        .info-card p {
+            margin: 8px 0;
+            font-size: 0.95em;
+            color: #444;
+            line-height: 1.5;
+        }
+        .badge-tip {
+            font-family: 'Segoe UI', sans-serif;
+            background: #fffbe6;
+            padding: 6px 10px;
+            border-left: 4px solid #f1c40f;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.9em;
+            margin-top: 10px;
+            color: #665200;
+        }
+        
+        /* --- DISEÑO DEL DIAGRAMA DE FLUJO EN CSS --- */
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f5ece9;
+            border-radius: 12px;
+            border: 1px dashed #3c606e;
+        }
+        .flow-node {
+            background: white;
+            border: 2px solid #3c606e;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: #3c606e;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            min-width: 200px;
+        }
+        .flow-arrow {
+            color: #3c606e;
+            font-size: 1.5em;
+            line-height: 1;
+        }
+        .flow-decision {
+            background: #fffbe6;
+            border: 2px solid #f1c40f;
+            padding: 15px;
+            transform: rotate(0deg); /* Nodo estilizado sin romper el texto */
+            border-radius: 8px;
+            font-weight: bold;
+            color: #665200;
+            text-align: center;
+            max-width: 280px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <nav>
+            <button onclick="window.location.href='dashboard.html'" class="btn-nav">Ir al Panel</button>
+            <!-- <button id="btnConfig" class="btn-nav">Parámetros</button>
+            <button id="btnFormulas" class="btn-nav">Fórmulas</button> -->
+        </nav>
+
+        <h1>Guía de Usuario del Convertidor</h1>
+        <p>Aprende a utilizar las funciones avanzadas de cálculo, personalización de constantes (JSON) y control de decimales en cada módulo de la plataforma.</p>
+
+        <div class="category-title">Diagrama de Flujo: Proceso de Conversión Estándar</div>
+        
+        <div class="flowchart">
+            <div class="flow-node">1. Ingresar al Módulo</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-node">2. Consultar Fórmulas (Opcional)</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-decision">¿Requiere ajustar el factor o valor de conversión?</div>
+            <div class="flow-arrow">↓ Sí</div>
+            <div class="flow-node" style="border-color:#27ae60; color:#27ae60;">3. Editar Parámetros (JSON) y Guardar</div>
+            <div class="flow-arrow">↓ No / Terminado</div>
+            <div class="flow-node">4. Definir Precisión (Decimales)</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-node" style="background:#3c606e; color:white;">5. Digitar valor en la unidad origen</div>
+        </div>
+
+        <div class="category-title">Instrucciones de Operación Detalladas</div>
+        
+        <div class="converter-grid">
+            
+            <div class="info-card">
+                <div class="step-number">1</div>
+                <h3>Acceso al Módulo</h3>
+                <p>Selecciona e ingresa al enlace del módulo de conversión que necesites utilizar desde el panel principal (Longitud, Torque, Carga Eléctrica, etc.).</p>
+            </div>
+
+            <div class="info-card">
+                <div class="step-number">2</div>
+                <h3>Consulta de Fórmulas</h3>
+                <p>Haz clic en el botón <b>"Fórmulas"</b> ubicado en la barra de navegación superior. Se desplegará una ventana emergente con las expresiones matemáticas y factores de conversión base del módulo activo.</p>
+            </div>
+
+            <div class="info-card">
+                <div class="step-number">3</div>
+                <h3>Conversión Instantánea</h3>
+                <p>Escribe directamente sobre la casilla de la unidad que deseas transformar. El sistema procesará el cálculo en tiempo real para todas las demás unidades utilizando los valores predeterminados cargados en el archivo JSON.</p>
+            </div>
+
+            <div class="info-card">
+                <div class="step-number">4</div>
+                <h3>Personalización de Parámetros</h3>
+                <p>Si requieres modificar un factor de conversión temporalmente para una operación específica, presiona el botón <b>"Parámetros"</b> en la barra de navegación para abrir el editor de configuración.</p>
+                <div class="badge-tip">
+                    <b>💡 Recomendación crítica:</b> Modifica únicamente el valor numérico y sus decimales. No alteres las llaves, comillas ni la sintaxis del código JSON. Al finalizar, haz clic en "Guardar Cambios" y reescribe el valor en la unidad para recalcular.
+                </div>
+                <div class="badge-tip" style="margin-top: 8px; border-left-color: #e74c3c; color: #7f2d21; background: #fdf2f2;">
+                    <b>❌ Cancelar edición:</b> Si no deseas aplicar cambios o te arrepientes, simplemente cierra la ventana emergente o haz clic fuera del cuadro del editor.
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="step-number">5</div>
+                <h3>Control de Precisión</h3>
+                <p>Para ajustar el número de decimales visibles en las respuestas, dirígete al control de precisión numérico, incrementa o disminuye el valor (rango de 0 a 8) y posteriormente vuelve a escribir el número en la unidad que deseas calcular.</p>
+            </div>
+
+        </div>
+
+        <section class="procedimiento">
+            <h3>Soporte Técnico y Persistencia:</h3>
+            <div class="pasos-container" style="font-family: inherit;">
+                Recuerda que los cambios realizados mediante el botón de parámetros se almacenan de manera local y temporal para agilizar tus flujos de trabajo. Si deseas restablecer los valores de fábrica del convertidor, basta con recargar la página en tu navegador web.
+            </div>
+        </section>
+    </div>
+
+    <div id="modalJSON" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Configuración del Sistema de Ayuda (JSON)</h2>
+            <textarea id="jsonEditor" rows="12" style="width:100%"></textarea>
+            <button id="saveJSON" class="btn-save">Guardar Cambios</button>
+        </div>
+    </div>
+
+    <div id="modalFormulas" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Fórmulas de la Guía</h2>
+            <div id="listaFormulas"></div>
+        </div>
+    </div>
+
+    <script src=""></script>
+</body>
+</html>

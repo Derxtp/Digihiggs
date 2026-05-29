@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Densidad Energética</title>
+    <link rel="shortcut icon" href="/images/digihiggs.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/stylepages.css">
+</head>
+<body>
+    <div class="container">
+
+        <nav>
+            <button onclick="window.location.href='dashboard.html'" class="btn-nav">Regresar</button>
+            <button id="btnConfig" class="btn-nav">Parámetros</button>
+            <button id="btnFormulas" class="btn-nav">Fórmulas</button>
+        </nav>
+
+        <h1>Conversor de Densidad Energética</h1>
+
+        <div class="precision-control">
+            <label for="decimales">Precisión (0-8 decimales): </label>
+            <input type="number" id="decimales" min="0" max="8" value="2">
+        </div>
+
+        <h2 class="section-title">1. Densidad Gravimétrica (Por Masa)</h2>
+        <div class="converter-grid">
+            <div class="input-group"><label>Joules por kilogramo (J/kg)</label><input type="number" id="jKg" placeholder="0"></div>
+            <div class="input-group"><label>Megajoules por kilogramo (MJ/kg)</label><input type="number" id="mjKg" placeholder="0"></div>
+            <div class="input-group"><label>Kilojoule por kilogramo (kJ/kg)</label><input type="number" id="kjKg" placeholder="0"></div>
+            <div class="input-group"><label>Watt-hora por kilogramo (Wh/kg)</label><input type="number" id="whKg" placeholder="0"></div>
+            <div class="input-group"><label>Kilovatio-hora por kilogramo (kWh/kg)</label><input type="number" id="kwhKg" placeholder="0"></div>
+            <div class="input-group"><label>Kilocaloría por gramo (kcal/g)</label><input type="number" id="kcalg" placeholder="0"></div>
+        </div>
+
+        <h2 class="section-title">2. Densidad Volumétrica (Por Volumen)</h2>
+        <div class="converter-grid">
+            <div class="input-group"><label>Joules por metro cúbico (J/m³)</label><input type="number" id="jM3" placeholder="0"></div>
+            <div class="input-group"><label>Megajoule por metro cúbico (MJ/m³)</label><input type="number" id="mjM3" placeholder="0"></div>
+            <div class="input-group"><label>BTU por pie cúbico (BTU/ft³)</label><input type="number" id="btuFt3" placeholder="0"></div>
+            <div class="input-group"><label>Watt-hora por litro (Wh/L)</label><input type="number" id="whL" placeholder="0"></div>
+            <div class="input-group"><label>Kilocaloría por metro cúbico (kcal/m³)</label><input type="number" id="kcalM3" placeholder="0"></div>
+        </div>
+
+        <section class="procedimiento">
+            <h3>Sustitución y Desarrollo:</h3>
+            <div id="pasos" class="pasos-container">
+                Introduzca un valor en cualquier campo para ver el procedimiento matemático.
+            </div>
+        </section>
+    </div>
+
+    <div id="modalJSON" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Configuración de Constantes (JSON)</h2>
+            <textarea id="jsonEditor" rows="16" style="width:100%; font-family: monospace;"></textarea>
+            <button id="saveJSON" class="btn-save">Guardar Cambios</button>
+        </div>
+    </div>
+
+    <div id="modalFormulas" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Fórmulas de Densidad Energética</h2>
+            <div id="listaFormulas"></div>
+        </div>
+    </div>
+
+    <script src="/js/converterdenergy.js"></script>
+</body>
+</html>

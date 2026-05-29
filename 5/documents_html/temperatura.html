@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Pestaña -->
+    <title>Conversor de Temperatura</title>
+
+      <!-- Favicon -->
+    <link rel="shortcut icon" href="/images/digihiggs.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/stylepages.css">
+</head>
+<body>
+    <div class="container">
+
+        <!-- Botones -->
+        <nav>
+            <button onclick="window.location.href='dashboard.html'" class="btn-nav">Regresar</button>
+            <button id="btnConfig" class="btn-nav">Parámetros</button>
+            <button id="btnFormulas" class="btn-nav">Fórmulas</button>
+        </nav>
+
+        <!-- Título -->
+        <h1>Conversor de Temperatura</h1>
+
+        <!-- Decimales -->
+        <div class="precision-control">
+            <label for="decimales">Precisión (0-8 decimales): </label>
+            <input type="number" id="decimales" min="0" max="8" value="2">
+        </div>
+
+        <!-- Conversiones -->
+        <div class="converter-grid">
+            <div class="input-group">
+                <label>Celsius (°C)</label>
+                <input type="number" id="celsius" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Fahrenheit (°F)</label>
+                <input type="number" id="fahrenheit" placeholder="32">
+            </div>
+            <div class="input-group">
+                <label>Kelvin (K)</label>
+                <input type="number" id="kelvin" placeholder="273.15">
+            </div>
+            <div class="input-group">
+                <label>Rankine (°R)</label>
+                <input type="number" id="rankine" placeholder="491.67">
+            </div>
+        </div>
+
+        <!-- Sección IA -->
+        <section class="procedimiento">
+            <h3>Sustitución y Desarrollo:</h3>
+            <div id="pasos" class="pasos-container">
+                Introduzca un valor para ver el procedimiento detallado.
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal Configuración JSON -->
+    <div id="modalJSON" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Configuración de Constantes (JSON)</h2> <!-- Título -->
+            <textarea id="jsonEditor" rows="10" style="width:100%"></textarea>
+            <button id="saveJSON" class="btn-save">Guardar Cambios</button>
+        </div>
+    </div>
+
+    <!-- Modal Fórmulas -->
+    <div id="modalFormulas" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Fórmulas de Conversión</h2> <!-- Título -->
+            <div id="listaFormulas"></div>
+        </div>
+    </div>
+
+    <script src="/js/convertertemperature.js"></script>
+</body>
+</html>

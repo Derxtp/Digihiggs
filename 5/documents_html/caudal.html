@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Caudal Volumétrico</title>
+    <link rel="shortcut icon" href="/images/digihiggs.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/stylepages.css">
+</head>
+<body>
+    <div class="container">
+
+        <nav>
+            <button onclick="window.location.href='dashboard.html'" class="btn-nav">Regresar</button>
+            <button id="btnConfig" class="btn-nav">Parámetros</button>
+            <button id="btnFormulas" class="btn-nav">Fórmulas</button>
+        </nav>
+
+        <h1>Conversor de Caudal Volumétrico</h1>
+
+        <div class="precision-control">
+            <label for="decimales">Precisión (0-8 decimales): </label>
+            <input type="number" id="decimales" min="0" max="8" value="2">
+        </div>
+
+        <div class="converter-grid">
+            <div class="input-group"><label>Metro cúbico por segundo (m³/s)</label><input type="number" id="metroCubicSeg" placeholder="0"></div>
+            <div class="input-group"><label>Metro cúbico por minuto (m³/min)</label><input type="number" id="metroCubicMin" placeholder="0"></div>
+            <div class="input-group"><label>Metro cúbico por hora (m³/h)</label><input type="number" id="metroCubicHora" placeholder="0"></div>
+            <div class="input-group"><label>Litro por segundo (L/s)</label><input type="number" id="litroSeg" placeholder="0"></div>
+            <div class="input-group"><label>Litro por minuto (L/min)</label><input type="number" id="litroMin" placeholder="0"></div>
+            <div class="input-group"><label>Litro por hora (L/h)</label><input type="number" id="litroHora" placeholder="0"></div>
+
+            <div class="input-group"><label>Pie cúbico por segundo (cfs)</label><input type="number" id="pieCubicSeg" placeholder="0"></div>
+            <div class="input-group"><label>Pie cúbico por minuto (cfm)</label><input type="number" id="pieCubicMin" placeholder="0"></div>
+            <div class="input-group"><label>Galón americano por segundo (gps)</label><input type="number" id="galonSeg" placeholder="0"></div>
+            <div class="input-group"><label>Galón americano por minuto (gpm)</label><input type="number" id="galonMin" placeholder="0"></div>
+            <div class="input-group"><label>Galón americano por hora (gph)</label><input type="number" id="galonHora" placeholder="0"></div>
+            <div class="input-group"><label>Barril por día (bbl/d)</label><input type="number" id="barrilDia" placeholder="0"></div>
+            <div class="input-group"><label>Barril por hora (bbl/h)</label><input type="number" id="barrilHora" placeholder="0"></div>
+            <div class="input-group"><label>Millón de pies cúbicos std/día (MMSCFD)</label><input type="number" id="millonPieCubicDia" placeholder="0"></div>
+        </div>
+
+        <section class="procedimiento">
+            <h3>Sustitución y Desarrollo:</h3>
+            <div id="pasos" class="pasos-container">
+                Introduzca un valor numérico para desplegar el desarrollo analítico en tiempo real.
+            </div>
+        </section>
+    </div>
+
+    <div id="modalJSON" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Configuración de Constantes (JSON)</h2>
+            <textarea id="jsonEditor" rows="15" style="width:100%; font-family: monospace;"></textarea>
+            <button id="saveJSON" class="btn-save">Guardar Cambios</button>
+        </div>
+    </div>
+
+    <div id="modalFormulas" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Fórmulas Hidráulicas de Caudal (Base: m³/s)</h2>
+            <div id="listaFormulas"></div>
+        </div>
+    </div>
+
+    <script src="/js/converterflow.js"></script>
+</body>
+</html>

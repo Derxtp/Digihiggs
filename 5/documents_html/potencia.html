@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Potencia</title>
+    <link rel="shortcut icon" href="/images/digihiggs.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/stylepages.css">
+</head>
+<body>
+    <div class="container">
+
+        <nav>
+            <button onclick="window.location.href='dashboard.html'" class="btn-nav">Regresar</button>
+            <button id="btnConfig" class="btn-nav">Parámetros</button>
+            <button id="btnFormulas" class="btn-nav">Fórmulas</button>
+        </nav>
+
+        <h1>Conversor de Magnitudes de Potencia</h1>
+
+        <div class="precision-control">
+            <label for="decimales">Precisión (0-8 decimales): </label>
+            <input type="number" id="decimales" min="0" max="8" value="2">
+        </div>
+
+        <div class="converter-grid">
+            <div class="input-group"><label>Nanovatio (nW)</label><input type="number" id="nanovatio" placeholder="0"></div>
+            <div class="input-group"><label>Microvatio (µW)</label><input type="number" id="microvatio" placeholder="0"></div>
+            <div class="input-group"><label>Milivatio (mW)</label><input type="number" id="milivatio" placeholder="0"></div>
+            <div class="input-group"><label>Vatio o Watt (W)</label><input type="number" id="vatio" placeholder="0"></div>
+            <div class="input-group"><label>Kilovatio (kW)</label><input type="number" id="kilovatio" placeholder="0"></div>
+            <div class="input-group"><label>Megavatio (MW)</label><input type="number" id="megavatio" placeholder="0"></div>
+            <div class="input-group"><label>Gigavatio (GW)</label><input type="number" id="gigavatio" placeholder="0"></div>
+            <div class="input-group"><label>Teravatio (TW)</label><input type="number" id="teravatio" placeholder="0"></div>
+            <div class="input-group"><label>Caballo de fuerza (HP)</label><input type="number" id="caballoFuerza" placeholder="0"></div>
+            <div class="input-group"><label>Caballo de vapor (CV)</label><input type="number" id="caballoVapor" placeholder="0"></div>
+            <div class="input-group"><label>Pies-libras por segundo</label><input type="number" id="piesLibrasSeg" placeholder="0"></div>
+            <div class="input-group"><label>BTU por hora (BTU/h)</label><input type="number" id="btuHora" placeholder="0"></div>
+            <div class="input-group"><label>Calorías por segundo (cal/s)</label><input type="number" id="caloriasSeg" placeholder="0"></div>
+            <div class="input-group"><label>Kilocalorías por hora (kcal/h)</label><input type="number" id="kilocaloriasHora" placeholder="0"></div>
+            <div class="input-group"><label>Tonelada de refrigeración (TRF)</label><input type="number" id="toneladaRefrigeracion" placeholder="0"></div>
+            <div class="input-group"><label>Decibelio-vatio (dBW)</label><input type="number" id="dbw" placeholder="0"></div>
+            <div class="input-group"><label>Decibelio-milivatio (dBm)</label><input type="number" id="dbm" placeholder="0"></div>
+        </div>
+
+        <section class="procedimiento">
+            <h3>Sustitución y Desarrollo:</h3>
+            <div id="pasos" class="pasos-container">
+                Introduzca un valor para ver el procedimiento matemático detallado.
+            </div>
+        </section>
+    </div>
+
+    <div id="modalJSON" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Configuración de Constantes (JSON)</h2>
+            <textarea id="jsonEditor" rows="15" style="width:100%; font-family: monospace;"></textarea>
+            <button id="saveJSON" class="btn-save">Guardar Cambios</button>
+        </div>
+    </div>
+
+    <div id="modalFormulas" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Fórmulas y Escalas de Potencia (Base: Watt)</h2>
+            <div id="listaFormulas"></div>
+        </div>
+    </div>
+
+    <script src="/js/converterpower.js"></script>
+</body>
+</html>

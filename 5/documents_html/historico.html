@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo de Medidas Tradicionales e Históricas</title>
+    <link rel="shortcut icon" href="/images/digihiggs.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/stylepages.css">
+    <style>
+        /* Estilos complementarios para transformar la cuadrícula en tarjetas informativas */
+        .category-title {
+            background-color: #3c606e;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 1.25em;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .info-card {
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        .info-card h3 {
+            margin-top: 0;
+            color: #3c606e;
+            font-size: 1.1em;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+        .info-card p {
+            margin: 8px 0;
+            font-size: 0.95em;
+            color: #444;
+            line-height: 1.4;
+        }
+        .equivalence {
+            font-family: 'Courier New', Courier, monospace;
+            background: #fffbe6;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 5px;
+            color: #b78a00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <nav>
+            <button onclick="window.location.href='dashboard.html'" class="btn-nav">Ir al panel</button>
+            <!-- <button id="btnConfig" class="btn-nav">Parámetros</button>
+            <button id="btnFormulas" class="btn-nav">Fórmulas</button> -->
+        </nav>
+
+        <h1>Medidas Tradicionales e Históricas</h1>
+        <p>Una ventana al pasado comercial y agrícola de México. Este módulo rescata el valor, origen y equivalencias de las antiguas ordenanzas de la Nueva España y las profundas raíces mesoamericanas.</p>
+
+        <div class="category-title">1. Conteo y Comercio Tradicional</div>
+        <div class="converter-grid">
+            <div class="info-card">
+                <h3>El Tapatío</h3>
+                <p>Originaria de los tianguis coloniales de Guadalajara (del náhuatl <i>tlapatiotl</i>: "que vale por tres"). Utilizada para asegurar la justicia en el trueque de granos de cacao o mercancías.</p>
+                <div class="equivalence">1 Tapatío = 3 Unidades</div>
+            </div>
+            <div class="info-card">
+                <h3>La Docena</h3>
+                <p>Introducida por el sistema comercial europeo. Es el primer nivel de agrupación duodecimal y sirvió como eje del comercio minorista.</p>
+                <div class="equivalence">1 Docena = 12 Unidades</div>
+            </div>
+            <div class="info-card">
+                <h3>Media Gruesa</h3>
+                <p>Submúltiplo comercial intermedio equivalente a seis docenas. Facilitaba el empaquetado de pedidos medianos.</p>
+                <div class="equivalence">1 M. Gruesa = 72 Unidades</div>
+            </div>
+            <div class="info-card">
+                <h3>La Gruesa</h3>
+                <p>Unidad reina del comercio de mayoreo colonial (12 docenas). Sobrevive fuertemente en México en la venta tradicional de flores, mercería, clavos y pirotecnia.</p>
+                <div class="equivalence">1 Gruesa = 144 Unidades</div>
+            </div>
+            <div class="info-card">
+                <h3>Manojo o Mano</h3>
+                <p>Raíz matemática mesoamericana basada en los cinco dedos de la mano. Sigue plenamente vigente en mercados locales para la venta de hortalizas como el cilantro o rábanos.</p>
+                <div class="equivalence">1 Mano = 5 Unidades</div>
+            </div>
+            <div class="info-card">
+                <h3>Carga (Conteo)</h3>
+                <p>Evolución del término prehispánico <i>centzontli</i> (sistema vigesimal). Representaba originalmente la carga de un tameme (cargador) o un animal; se usa hoy para contar elotes o naranjas.</p>
+                <div class="equivalence">1 Carga = 400 Unidades</div>
+            </div>
+        </div>
+
+        <div class="category-title">2. Peso del Campo (Masa)</div>
+        <div class="converter-grid">
+            <div class="info-card">
+                <h3>Libra Castellana</h3>
+                <p>La unidad de peso oficial del Imperio Español antes de la llegada del sistema métrico. Indispensable para interpretar recetarios antiguos de la época virreinal.</p>
+                <div class="equivalence">1 Libra = 0.460 kg</div>
+            </div>
+            <div class="info-card">
+                <h3>Arroba (@)</h3>
+                <p>Equivalía históricamente a la cuarta parte de un quintal. Hoy en día los productores rurales la siguen utilizando para pesar café en cereza, papas y piñas de agave tequilero.</p>
+                <div class="equivalence">1 Arroba = 11.502 kg</div>
+            </div>
+            <div class="info-card">
+                <h3>Almud (Maíz)</h3>
+                <p>Originalmente era un cajón de madera usado como medida de volumen, pero en los mercados tradicionales de Oaxaca o Yucatán se estandarizó como un peso fijo para transacciones de granos.</p>
+                <div class="equivalence">1 Almud ≈ 3.400 kg</div>
+            </div>
+            <div class="info-card">
+                <h3>Quintal</h3>
+                <p>Utilizado desde la colonia para registrar grandes cosechas agrícolas. Es la unidad estándar por excelencia bajo la cual los caficultores de Chiapas y Veracruz cotizan el café en grano.</p>
+                <div class="equivalence">1 Quintal = 46.024 kg</div>
+            </div>
+        </div>
+
+        <div class="category-title">3. Volumen y Capacidad</div>
+        <div class="converter-grid">
+            <div class="info-card">
+                <h3>Cuartilla</h3>
+                <p>Representaba la cuarta parte de un almud. En las regiones de la Huasteca se sigue midiendo la venta de semillas finas y chiles secos usando botes metálicos artesanales que respetan esta medida.</p>
+                <div class="equivalence">1 Cuartilla ≈ 1.15 Litros</div>
+            </div>
+            <div class="info-card">
+                <h3>Carga (Líquidos)</h3>
+                <p>Medida histórica empleada en las haciendas para el transporte masivo de líquidos a lomo de mula. Era el estándar para la distribución de agua, pulque o aguardiente.</p>
+                <div class="equivalence">1 Carga Liq. ≈ 150.0 Litros</div>
+            </div>
+        </div>
+
+        <div class="category-title">4. Dimensiones Antiguas (Longitud)</div>
+        <div class="converter-grid">
+            <div class="info-card">
+                <h3>Jeme</h3>
+                <p>Medida corporal folclórica que representa la distancia entre la punta del dedo pulgar y la punta del dedo índice con la mano totalmente extendida.</p>
+                <div class="equivalence">1 Jeme ≈ 0.15 Metros</div>
+            </div>
+            <div class="info-card">
+                <h3>Vara Castellana o Conesa</h3>
+                <p>La unidad lineal oficial de la Nueva España. Su conocimiento es fundamental para arquitectos, historiadores y topógrafos que leen planos coloniales o escrituras de terrenos ejidales antiguos.</p>
+                <div class="equivalence">1 Vara = 0.838 Metros</div>
+            </div>
+            <div class="info-card">
+                <h3>Legua Castellana</h3>
+                <p>Expresaba la distancia promedio que un hombre o un caballo podían caminar en una hora. Muy arraigada en cuentos de la tradición oral y el folclor rural mexicano.</p>
+                <div class="equivalence">1 Legua = 4.19 Kilómetros</div>
+            </div>
+        </div>
+
+        <section class="procedimiento">
+            <h3>Importancia del Rescate Cultural:</h3>
+            <div class="pasos-container" style="font-family: inherit;">
+                Estas unidades demuestran cómo los antiguos habitantes de México adaptaron las necesidades del comercio diario uniendo el sistema duodecimal europeo con los sistemas vigesimales y de trueque autóctonos. Su permanencia en los tianguis contemporáneos es testimonio vivo de nuestra historia económica.
+            </div>
+        </section>
+    </div>
+
+    <div id="modalJSON" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Configuración Histórica (JSON)</h2>
+            <textarea id="jsonEditor" rows="12" style="width:100%"></textarea>
+            <button id="saveJSON" class="btn-save">Guardar Cambios</button>
+        </div>
+    </div>
+
+    <div id="modalFormulas" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Fórmulas y Registros de Archivo</h2>
+            <div id="listaFormulas"></div>
+        </div>
+    </div>
+
+    <script src=""></script>
+</body>
+</html>
